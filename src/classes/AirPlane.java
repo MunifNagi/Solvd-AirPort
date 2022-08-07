@@ -1,6 +1,8 @@
 package classes;
 
-public class AirPlane {
+import interfaces.BookSeat;
+
+public class AirPlane implements BookSeat {
     private String name;
     private String modelNumber;
     private int maxSeats;
@@ -64,7 +66,7 @@ public class AirPlane {
         return this.bookedSeats;
     }
 
-    public void bookSeat() {
+    public void bookSeat(Flight f, Customer c) {
         this.bookedSeats++;
     }
 
