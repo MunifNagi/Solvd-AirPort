@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Employee extends User {
-    private AirPort airport;
+    private AirPort employer;
     public Employee(String fullName, String DOB, AirPort ap) {
         super(fullName,DOB);
-        airport = ap;
+        this.employer = ap;
     }
     @Override
     public String getFullName() {
@@ -24,7 +24,7 @@ public class Employee extends User {
         System.out.println("I'm an employee in this Airport");
     }
     public Flight chooseFlight() {
-        ArrayList<Flight> flights = this.airport.getDepartingFlights();
+        ArrayList<Flight> flights = this.employer.getDepartingFlights();
         System.out.println("Airport flights");
         for (int i = 1; i < flights.size() + 1; i++) {
             System.out.println(i + "-" + flights.get(i - 1) + " ");
