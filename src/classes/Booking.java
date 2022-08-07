@@ -33,7 +33,7 @@ public class Booking implements BookSeat {
                 row = seatNumber.charAt(0) - '1';
                 col = seatNumber.charAt(1) - 'A';
             }
-        } while (row < 0 || row > ((p.getCapacity() / 10) - 1) || col < 0 || col > 9);
+        } while ((row < 0 || row >= p.getRows()) || (col < 0 || col >= p.getCols()));
         return seatNumber;
     }
     public void bookSeat(Flight f, Customer customer) {
