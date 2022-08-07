@@ -4,7 +4,7 @@ import classes.Flight;
 import java.util.*;
 
 public interface IFlights {
-    void getAllFlights();
+    void printAllFlights();
 
     void addFlight(Flight F, ArrayList<Flight> Flights);
 }
