@@ -24,32 +24,33 @@ public class Employee extends User {
         System.out.println("I'm an employee in this Airport");
     }
     public Flight chooseFlight() {
-        ArrayList<Flight> flights = this.airport.getDepartingFlights();
+        ArrayList<Flight> flights=new ArrayList<Flight>();
+        try {
+            flights = this.airport.getDepartingFlights();
+        }catch (NullPointerException e){
+            System.out.println("Airport is null, so there are no flights");
+            return null;
+        }
         System.out.println("Airport flights");
         for (int i = 1; i < flights.size() + 1; i++) {
             System.out.println(i + "-" + flights.get(i - 1) + " ");
         }
         System.out.println("Please enter the Flight you wish to Book.");
-
         Scanner keyboard = new Scanner(System.in);
-        return flights.get(Integer.parseInt(keyboard.nextLine()) - 1);
-    }
+        String chosen=keyboard.nextLine();
+        try {
+            int index = Integer.parseInt(chosen);
+            return flights.get(index - 1);
+        } catch (NumberFormatException nfe) {
+            System.out.println(chosen +" is not a number");
+        } catch (IndexOutOfBoundsException ioobe) {
+            System.out.println("Index " + (Integer.parseInt(chosen) - 1) +" is out of bound");
+        }
+        return null;
+        }
 
     void bookTicket(Flight f, Customer c) {
         Booking b = new Booking();
         b.bookSeat(f, c);
     }
     }
-
-    
-
-    
-
-    
-
-    
-
-
-
-
-
