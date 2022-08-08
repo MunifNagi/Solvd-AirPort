@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Employee extends User {
-    private AirPort airport;
+    private AirPort employer;
     public Employee(String fullName, String DOB, AirPort ap) {
         super(fullName,DOB);
-        airport = ap;
+        this.employer = ap;
     }
     @Override
     public String getFullName() {
@@ -26,7 +26,7 @@ public class Employee extends User {
     public Flight chooseFlight() {
         ArrayList<Flight> flights=new ArrayList<Flight>();
         try {
-            flights = this.airport.getDepartingFlights();
+            flights = this.employer.getDepartingFlights();
         }catch (NullPointerException e){
             System.out.println("Airport is null, so there are no flights");
             return null;

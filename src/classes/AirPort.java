@@ -12,12 +12,12 @@ public class AirPort implements IFlights, IAirPlanes {
     public ArrayList<Flight> arrivingFlights;
     public ArrayList<AirPlane> airPlanes;
 
-    public AirPort(String n, String c) {
-        name = n;
-        city = c;
-        departingFlights = new ArrayList<Flight>();
-        arrivingFlights = new ArrayList<Flight>();
-        airPlanes= new ArrayList<AirPlane>();
+    public AirPort(String name, String city) {
+        this.name = name;
+        this.city = city;
+        this.departingFlights = new ArrayList<Flight>();
+        this.arrivingFlights = new ArrayList<Flight>();
+        this.airPlanes= new ArrayList<AirPlane>();
     }
 
     @Override
@@ -59,7 +59,7 @@ public class AirPort implements IFlights, IAirPlanes {
         f.add(flight);
     }
 
-    public void getAllFlights() {
+    public void printAllFlights() {
         if (departingFlights.size() == 0) {
             System.out.println("No Departing flights from " + name);
         } else {
@@ -79,7 +79,7 @@ public class AirPort implements IFlights, IAirPlanes {
 
     }
 
-    public void getAllAirPlanes() {
+    public void printAllAirPlanes() {
         System.out.println("Airplanes in airport now");
         for (int i = 0; i < airPlanes.size(); i++) {
             System.out.println(airPlanes.get(i) + " ");
