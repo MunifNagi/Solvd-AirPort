@@ -1,7 +1,9 @@
 package classes;
 
+import Exceptions.InvalidDateException;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidDateException {
 
         AirPort Ezeiza = new AirPort("Ezeiza", " Buenos Aires");
         AirPort JFK = new AirPort("JFK", "New York");
@@ -17,7 +19,7 @@ public class Main {
 //        JFK.getAllFlights();
 //        JFK.getAllAirPlanes();
         Employee user1 = new Employee("John","10/22/1980", JFK);
-        Customer user2 = new Customer("Alex","6/18/1997");
+        Customer user2 = new Customer("Alex","06/18/1997");
         user1.greeting();
         user2.greeting();
         Flight chosen = user1.chooseFlight();

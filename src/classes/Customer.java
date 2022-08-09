@@ -1,10 +1,12 @@
 package classes;
 
+import Exceptions.InvalidDateException;
+
 import java.util.ArrayList;
 
 public class Customer extends User {
     private ArrayList<Ticket> tickets;
-    public Customer(String fullName, String DOB) {
+    public Customer(String fullName, String DOB) throws InvalidDateException {
         super(fullName,DOB);
         this.tickets = new ArrayList<Ticket>();
     }

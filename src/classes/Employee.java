@@ -1,11 +1,13 @@
 package classes;
 
+import Exceptions.InvalidDateException;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Employee extends User {
     private AirPort employer;
-    public Employee(String fullName, String DOB, AirPort ap) {
+    public Employee(String fullName, String DOB, AirPort ap) throws InvalidDateException {
         super(fullName,DOB);
         this.employer = ap;
     }

@@ -23,7 +23,6 @@ public class AirPlane implements BookSeat {
     public void setSeats() {
         this.seats = new char[this.rows][this.cols];
         int firstCol = (int) 'A';
-        System.out.println(firstCol);
         for (int r = 0; r < this.rows; r++) {
             for (int c = 0; c<this.cols;c++ ){
                 seats[r][c]= (char) ( firstCol + c);

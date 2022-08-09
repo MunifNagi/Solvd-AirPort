@@ -1,5 +1,6 @@
 package classes;
 
+import Exceptions.NoFlightChosenException;
 import interfaces.BookSeat;
 import java.util.Scanner;
 
@@ -37,13 +38,10 @@ public class Booking implements BookSeat {
         return seatNumber;
     }
     public void bookSeat(Flight f, Customer customer) {
-        AirPlane p;
-        try {
-            p = f.getAirPlane();
-        }catch(NullPointerException npe){
-            System.out.println("Flight is null, so there will be no planes associated with it to book");
-            return;
+        if (f==null){
+            throw new NoFlightChosenException("Flight is null, so there will be no AirPlane associated with it to book",new NullPointerException());
         }
+        AirPlane p =f.getAirPlane();;
         checkAvailability(p);
         String seatNumber=chooseSeat(p);
         char[][] seats = p.getSeats();
