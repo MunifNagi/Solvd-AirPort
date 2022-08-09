@@ -1,5 +1,7 @@
 package classes;
 
+import Exceptions.NegativeArgumentValueException;
+import Exceptions.NoFlightChosenException;
 import interfaces.BookSeat;
 
 public class AirPlane implements BookSeat {
@@ -14,6 +16,7 @@ public class AirPlane implements BookSeat {
     public AirPlane(String planeName, String model, int rows, int cols) {
         this.name = planeName;
         this.modelNumber = model;
+        if (rows < 1 || cols < 1){throw new NegativeArgumentValueException("Airplane contains negative number of rows or cols!");}
         this.rows = rows;
         this.cols=cols;
         this.capacity = cols * rows;

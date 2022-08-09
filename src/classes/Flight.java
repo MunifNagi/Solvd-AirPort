@@ -1,15 +1,18 @@
 package classes;
 
+import Exceptions.NegativeArgumentValueException;
+
 public class Flight {
     private AirPlane airPlane;
     private AirPort origin;
     private AirPort destination;
     public int cost;
 
-    public Flight(AirPort ori, AirPort des, int c, AirPlane plane) {
+    public Flight(AirPort ori, AirPort des, int cost, AirPlane plane) {
         this.origin = ori;
         this.destination = des;
-        this.cost = c;
+        if (cost < 0){throw new NegativeArgumentValueException("Cost for the flight can not be negative");}
+        this.cost = cost;
         this.airPlane = plane;
         this.origin.addFlight(this, origin.departingFlights);
         this.destination.addFlight(this, destination.arrivingFlights);
