@@ -1,7 +1,17 @@
 package classes;
 
+
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.security.Provider;
+
 public class Main {
+    private static final Logger logger = LogManager.getLogger(Main.class);
+
     public static void main(String[] args) {
+        logger.trace("Starting The Applications");
 
         AirPort Ezeiza = new AirPort("Ezeiza", " Buenos Aires");
         AirPort JFK = new AirPort("JFK", "New York");
@@ -21,8 +31,10 @@ public class Main {
         user1.greeting();
         user2.greeting();
         Flight chosen = user1.chooseFlight();
+        if (chosen==null){logger.warn("No Flight has been chosen");}
         user1.bookTicket(chosen, user2);
         user2.getTickets();
+        logger.info("Exiting application.");
 
     }
 }
