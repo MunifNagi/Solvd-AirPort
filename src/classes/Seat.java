@@ -42,6 +42,7 @@ public final class Seat {
     public Flight getFlight() {
         return flight;
     }
+
     public AirPlane getAirPlane() {
         return this.airPlane;
     }
@@ -53,6 +54,7 @@ public final class Seat {
     public void setLetter(char letter) {
         this.letter = letter;
     }
+
     public char getNum() {
         return num;
     }

@@ -22,15 +22,11 @@ public class Airlines implements IFlights, IAirPlanes {
 
     public void printAllFlights() {
         System.out.println("Airlines flights");
-        for (int i = 0; i < flights.size(); i++) {
-            System.out.println(flights.get(i) + " ");
-        }
+        Display.print(this.flights);
     }
     public void printAllAirPlanes() {
         System.out.println("Airlines Airplanes");
-        for (int i = 0; i < airPlanes.size(); i++) {
-            System.out.println(airPlanes.get(i) + " ");
-        }
+        Display.print(this.airPlanes);
     }
 
     public void addFlight(Flight flight, ArrayList<Flight> flights) {

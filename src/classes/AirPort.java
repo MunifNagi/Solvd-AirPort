@@ -52,9 +52,11 @@ public class AirPort implements IFlights, IAirPlanes {
     public String getName() {
         return name;
     }
+
     public ArrayList<Flight> getDepartingFlights() {
         return departingFlights;
     }
+
     public void addFlight(Flight flight, ArrayList<Flight> f) {
         f.add(flight);
     }
@@ -64,26 +66,20 @@ public class AirPort implements IFlights, IAirPlanes {
             System.out.println("No Departing flights from " + name);
         } else {
             System.out.println("Departing flights from " + name);
-            for (int i = 0; i < departingFlights.size(); i++) {
-                System.out.println(departingFlights.get(i) + " ");
-            }
+            Display.print(this.departingFlights);
         }
         if (arrivingFlights.size() == 0) {
             System.out.println("No arriving flights from " + name + "\n");
         } else {
             System.out.println("Arriving flights from " + name);
-            for (int i = 0; i < arrivingFlights.size(); i++) {
-                System.out.println(arrivingFlights.get(i) + " ");
-            }
+            Display.print(this.arrivingFlights);
         }
 
     }
 
     public void printAllAirPlanes() {
         System.out.println("Airplanes in airport now");
-        for (int i = 0; i < airPlanes.size(); i++) {
-            System.out.println(airPlanes.get(i) + " ");
-        }
+        Display.print(this.airPlanes);
     }
 
     public void addAirPlane(AirPlane plane) {

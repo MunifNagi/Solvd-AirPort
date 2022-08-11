@@ -10,14 +10,15 @@ public class Customer extends User {
         super(fullName,DOB);
         this.tickets = new ArrayList<Ticket>();
     }
+
     public void addTicket(Ticket t) {
         this.tickets.add(t);
     }
+
     public void getTickets() {
         System.out.println(this.fullName + "'s Tickets");
-        for (int i = 0; i < tickets.size(); i++) {
-            System.out.println(tickets.get(i) + " ");
-        }
+        Display.print(this.tickets);
+
     }
     @Override
     String getFullName() {

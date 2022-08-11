@@ -34,9 +34,8 @@ public class Employee extends User {
             return null;
         }
         System.out.println("Airport flights");
-        for (int i = 1; i < flights.size() + 1; i++) {
-            System.out.println(i + "-" + flights.get(i - 1) + " ");
-        }
+        Display.print(flights);
+
         System.out.println("Please enter the Flight you wish to Book.");
         Scanner keyboard = new Scanner(System.in);
         String chosen=keyboard.nextLine();
@@ -55,4 +54,4 @@ public class Employee extends User {
         Booking b = new Booking();
         b.bookSeat(f, c);
     }
-    }
+}
