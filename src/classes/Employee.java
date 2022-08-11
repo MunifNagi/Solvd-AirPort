@@ -9,14 +9,17 @@ public class Employee extends User {
         super(fullName,DOB);
         this.employer = ap;
     }
+
     @Override
     public String getFullName() {
         return this.fullName;
     }
+
     @Override
     String getDOB() {
         return this.birthDate;
     }
+
     @Override
     void greeting() {
         System.out.println("Hello my name is " + this.fullName);
@@ -39,17 +42,4 @@ public class Employee extends User {
         Booking b = new Booking();
         b.bookSeat(f, c);
     }
-    }
-
-    
-
-    
-
-    
-
-    
-
-
-
-
-
+}

@@ -7,9 +7,9 @@ public class Main {
         AirPort JFK = new AirPort("JFK", "New York");
         AirPort LHR = new AirPort("LHR", "London");
 
-        AirPlane Boeing = new AirPlane("Boeing", "1234", 7,4);
-        AirPlane Boeing2 = new AirPlane("Boeing", "1235", 4,3);
-        AirPlane Boeing3 = new AirPlane("Boeing", "1236", 9,10);
+        AirPlane Boeing = new AirPlane("Boeing", "1234", 7, 4);
+        AirPlane Boeing2 = new AirPlane("Boeing", "1235", 4, 3);
+        AirPlane Boeing3 = new AirPlane("Boeing", "1236", 9, 10);
 
         Flight f1 = new Flight(JFK, Ezeiza, 7, Boeing);
         Flight f2 = new Flight(JFK, LHR, 9, Boeing2);

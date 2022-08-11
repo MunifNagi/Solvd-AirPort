@@ -8,23 +8,28 @@ public class Customer extends User {
         super(fullName,DOB);
         this.tickets = new ArrayList<Ticket>();
     }
+
     public void addTicket(Ticket t) {
         this.tickets.add(t);
     }
+
     public void getTickets() {
         System.out.println(this.fullName + "'s Tickets");
         for (int i = 0; i < tickets.size(); i++) {
             System.out.println(tickets.get(i) + " ");
         }
     }
+
     @Override
     String getFullName() {
         return this.fullName;
     }
+
     @Override
     String getDOB() {
         return this.birthDate;
     }
+
     @Override
     void greeting() {
         System.out.println("Hello my name is " + this.fullName);

@@ -11,6 +11,7 @@ public class Booking implements BookSeat {
             System.out.println("There are no available seats, Please choose a different Flight");
         }
     }
+
     public static String chooseSeat(AirPlane p) {
         System.out.println("Please enter the seat (such as '1A') you like to book.");
         System.out.println("Enter -1 to cancel.");
@@ -36,6 +37,7 @@ public class Booking implements BookSeat {
         } while ((row < 0 || row >= p.getRows()) || (col < 0 || col >= p.getCols()));
         return seatNumber;
     }
+
     public void bookSeat(Flight f, Customer customer) {
         AirPlane p;
         try {

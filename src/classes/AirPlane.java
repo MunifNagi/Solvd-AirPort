@@ -15,7 +15,7 @@ public class AirPlane implements BookSeat {
         this.name = planeName;
         this.modelNumber = model;
         this.rows = rows;
-        this.cols=cols;
+        this.cols = cols;
         this.capacity = cols * rows;
         setSeats();
     }
@@ -23,9 +23,8 @@ public class AirPlane implements BookSeat {
     public void setSeats() {
         this.seats = new char[this.rows][this.cols];
         int firstCol = (int) 'A';
-        System.out.println(firstCol);
         for (int r = 0; r < this.rows; r++) {
-            for (int c = 0; c<this.cols;c++ ){
+            for (int c = 0; c < this.cols;c++ ){
                 seats[r][c]= (char) ( firstCol + c);
             }
         }
@@ -39,7 +38,7 @@ public class AirPlane implements BookSeat {
         System.out.println("Row");
         for (int i = 0; i < this.seats.length; i++) {
             System.out.print((i + 1)+ "  ");
-            for (int c=0; c<this.cols;c++){
+            for (int c = 0; c < this.cols; c++){
                 System.out.print(seats[i][c]+ " ");
             }
             System.out.println("");
@@ -56,9 +55,11 @@ public class AirPlane implements BookSeat {
     public int getCapacity() {
         return this.capacity;
     }
+
     public int getRows() {
         return this.rows;
     }
+
     public int getCols() {
         return this.cols;
     }

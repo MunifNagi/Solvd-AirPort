@@ -30,6 +30,7 @@ public final class Seat {
         Seat s  = (Seat) obj;
         return this.letter == s.getLetter() && this.airPlane.equals(s.getAirPlane()) && this.num == s.getNum() ;
     }
+
     @Override
     public int hashCode(){
         int result = 17;
@@ -39,9 +40,11 @@ public final class Seat {
         return result;
 
     }
+
     public Flight getFlight() {
         return flight;
     }
+
     public AirPlane getAirPlane() {
         return this.airPlane;
     }
@@ -53,6 +56,7 @@ public final class Seat {
     public void setLetter(char letter) {
         this.letter = letter;
     }
+
     public char getNum() {
         return num;
     }
