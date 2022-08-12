@@ -32,8 +32,10 @@ public class Employee extends User {
         System.out.println("Please enter the Flight you wish to Book.");
 
         Scanner keyboard = new Scanner(System.in);
-        int chosen=(Integer.parseInt(keyboard.nextLine()));
-        if (chosen>flights.size()){return  null;}
+        int chosen = (Integer.parseInt(keyboard.nextLine()));
+        if (chosen > flights.size()){
+            return  null;
+        }
         return flights.get(chosen - 1);
     }
 

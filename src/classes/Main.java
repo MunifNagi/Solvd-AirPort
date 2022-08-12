@@ -31,10 +31,11 @@ public class Main {
         user1.greeting();
         user2.greeting();
         Flight chosen = user1.chooseFlight();
-        if (chosen==null){logger.warn("No Flight has been chosen");}
+        if (chosen == null){
+            logger.warn("No Flight has been chosen");
+        }
         user1.bookTicket(chosen, user2);
         user2.getTickets();
         logger.info("Exiting application.");
-
     }
 }
