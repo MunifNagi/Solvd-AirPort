@@ -2,6 +2,10 @@ package classes;
 
 import Exceptions.InvalidDateException;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Main {
     public static void main(String[] args) throws InvalidDateException {
 
@@ -20,10 +24,16 @@ public class Main {
 //        JFK.getAllAirPlanes();
         Employee user1 = new Employee("John","10/22/1980", JFK);
         Customer user2 = new Customer("Alex","06/18/1997");
+        Customer user3 = new Customer("John","07/29/1995");
+
         user1.greeting();
         user2.greeting();
         Flight chosen = user1.chooseFlight();
         user1.bookTicket(chosen, user2);
-        user2.getTickets();
+        Flight chosen2 = user1.chooseFlight();
+        user1.bookTicket(chosen2, user3);
+        Flight chosen3 = user1.chooseFlight();
+        user1.bookTicket(chosen3, user2);
+        Booking.printAllTickets();
     }
 }

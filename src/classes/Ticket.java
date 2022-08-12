@@ -14,7 +14,7 @@ public final class Ticket {
 
     @Override
     public String toString() {
-        return this.customer.getFullName() + "\n" + this.seat;
+        return this.seat.toString();
     }
 
     public Seat getSeat() {

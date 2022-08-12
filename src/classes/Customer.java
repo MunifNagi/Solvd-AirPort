@@ -9,6 +9,7 @@ public class Customer extends User {
     public Customer(String fullName, String DOB) throws InvalidDateException {
         super(fullName,DOB);
         this.tickets = new ArrayList<Ticket>();
+        Booking.ticketsBooked.put(this,new ArrayList<Ticket>());
     }
 
     public void addTicket(Ticket t) {
@@ -33,6 +34,10 @@ public class Customer extends User {
         System.out.println("Hello my name is " + this.fullName);
         System.out.println("DOB: " + this.birthDate);
         System.out.println("I'm a customer");
+    }
+    @Override
+    public String toString() {
+        return "Name: " + this.fullName + "   " + " DOB: " + this.getDOB();
     }
 
 }

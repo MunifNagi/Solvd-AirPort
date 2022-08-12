@@ -15,7 +15,7 @@ public final class Seat {
 
     @Override
     public String toString() {
-        return this.letter + "" + this.num + "\n" + this.flight;
+        return this.letter + "" + this.num + "  " + this.flight ;
     }
 
     @Override

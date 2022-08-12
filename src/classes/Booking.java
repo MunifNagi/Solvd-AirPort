@@ -2,9 +2,16 @@ package classes;
 
 import Exceptions.NoFlightChosenException;
 import interfaces.BookSeat;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Booking implements BookSeat {
+
+    public static HashMap<User,ArrayList<Ticket>> ticketsBooked= new HashMap<>();
+
     public static void checkAvailability(AirPlane p){
         int bookedSeats = p.getBooked();
         int capacity = p.getCapacity();
@@ -53,6 +60,7 @@ public class Booking implements BookSeat {
             seats[row][col] = 'X';
             Ticket t = new Ticket(customer, f, seatNumber);
             customer.addTicket(t);
+            ticketsBooked.get(customer).add(t);
             p.bookSeat(null,null);
             System.out.println(" ");
             p.printSeats();
@@ -62,4 +70,13 @@ public class Booking implements BookSeat {
             bookSeat(f,customer);
         }
     }
+
+    public static void printAllTickets() {
+        for(Map.Entry<User, ArrayList<Ticket>> m : ticketsBooked.entrySet()){
+            System.out.println(m.getKey());
+            Display.print(m.getValue());
+            System.out.println("_________");
+        }
+    }
+
 }
