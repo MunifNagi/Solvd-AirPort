@@ -34,7 +34,7 @@ public class Employee extends User {
             return null;
         }
         System.out.println("Airport flights");
-        Display.print(flights);
+        Display.numberedPrint(flights);
 
         System.out.println("Please enter the Flight you wish to Book.");
         Scanner keyboard = new Scanner(System.in);
