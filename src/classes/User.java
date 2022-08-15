@@ -16,7 +16,9 @@ public abstract class User {
         this.fullName = fn;
         if(dateValidation(DOB)){
             this.birthDate=DOB;
-        }else{this.birthDate=null;}
+        } else {
+            this.birthDate=null;
+        }
     }
 
     abstract String getFullName();
@@ -33,6 +35,4 @@ public abstract class User {
             throw new NoFlightChosenException("Date is Invalid",new ParseException("could not parse date",0));
         }
     }
-
-
 }

@@ -28,7 +28,7 @@ public class AirPlane implements BookSeat {
         int firstCol = (int) 'A';
         for (int r = 0; r < this.rows; r++) {
             for (int c = 0; c <this.cols; c++ ){
-                seats[r][c]= (char) ( firstCol + c);
+                seats[r][c] = (char) ( firstCol + c);
             }
         }
     }
@@ -69,6 +69,13 @@ public class AirPlane implements BookSeat {
 
     public int getBooked() {
         return this.bookedSeats;
+    }
+
+    public void emptySeat(Seat seat) {
+        this.bookedSeats--;
+        int row = seat.getNum() - '1';
+        int col = seat.getLetter() - 'A';
+        this.seats[row][col] = seat.getLetter();
     }
 
     public void bookSeat(Flight f, Customer c) {

@@ -6,7 +6,7 @@ public final class Seat {
     private Flight flight;
     private AirPlane airPlane;
 
-    public Seat(char letter, char num, Flight f) {
+    public Seat(char num, char letter, Flight f) {
         this.letter = letter;
         this.num = num;
         this.flight = f;
@@ -15,7 +15,7 @@ public final class Seat {
 
     @Override
     public String toString() {
-        return this.letter + "" + this.num + "  " + this.flight ;
+        return this.num + "" + this.letter + "  " + this.flight ;
     }
 
     @Override

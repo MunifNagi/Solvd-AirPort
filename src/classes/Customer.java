@@ -3,22 +3,26 @@ package classes;
 import Exceptions.InvalidDateException;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Customer extends User {
-    private ArrayList<Ticket> tickets;
+    public HashMap<Integer, Ticket> tickets = new HashMap<>();
     public Customer(String fullName, String DOB) throws InvalidDateException {
         super(fullName,DOB);
-        this.tickets = new ArrayList<Ticket>();
+        this.tickets = new HashMap<>();
         Booking.ticketsBooked.put(this,new ArrayList<Ticket>());
     }
 
     public void addTicket(Ticket t) {
-        this.tickets.add(t);
+        this.tickets.put(t.hashCode(),t);
     }
 
-    public void getTickets() {
-        System.out.println(this.fullName + "'s Tickets");
-        Display.print(this.tickets);
+    public List getTickets() {
+        //getting a list of all the customer tickets
+        return  this.tickets.values().stream().collect((Collectors.toList()));
 
     }
     @Override

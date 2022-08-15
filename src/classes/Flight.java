@@ -11,7 +11,9 @@ public class Flight {
     public Flight(AirPort ori, AirPort des, int cost, AirPlane plane) {
         this.origin = ori;
         this.destination = des;
-        if (cost < 0){throw new NegativeArgumentValueException("Cost for the flight can not be negative");}
+        if (cost < 0){
+            throw new NegativeArgumentValueException("Cost for the flight can not be negative");
+        }
         this.cost = cost;
         this.airPlane = plane;
         this.origin.addFlight(this, origin.departingFlights);

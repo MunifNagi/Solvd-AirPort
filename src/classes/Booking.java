@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Booking implements BookSeat {
 
-    public static HashMap<User,ArrayList<Ticket>> ticketsBooked= new HashMap<>();
+    public static HashMap<User, ArrayList<Ticket>> ticketsBooked = new HashMap<>();
 
     public static void checkAvailability(AirPlane p){
         int bookedSeats = p.getBooked();
@@ -47,12 +47,12 @@ public class Booking implements BookSeat {
     }
 
     public void bookSeat(Flight f, Customer customer) {
-        if (f==null){
+        if (f == null){
             throw new NoFlightChosenException("Flight is null, so there will be no AirPlane associated with it to book",new NullPointerException());
         }
-        AirPlane p =f.getAirPlane();;
+        AirPlane p = f.getAirPlane();;
         checkAvailability(p);
-        String seatNumber=chooseSeat(p);
+        String seatNumber = chooseSeat(p);
         char[][] seats = p.getSeats();
         int row = seatNumber.charAt(0) - '1';
         int col = seatNumber.charAt(1) - 'A';

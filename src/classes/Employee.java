@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Employee extends User {
     private AirPort employer;
     public Employee(String fullName, String DOB, AirPort ap) throws InvalidDateException {
-        super(fullName,DOB);
+        super(fullName, DOB);
         this.employer = ap;
     }
     @Override
@@ -26,7 +26,7 @@ public class Employee extends User {
         System.out.println("I'm an employee in this Airport");
     }
     public Flight chooseFlight() {
-        ArrayList<Flight> flights=new ArrayList<Flight>();
+        ArrayList<Flight> flights = new ArrayList<Flight>();
         try {
             flights = this.employer.getDepartingFlights();
         }catch (NullPointerException e){
@@ -38,7 +38,7 @@ public class Employee extends User {
 
         System.out.println("Please enter the Flight you wish to Book.");
         Scanner keyboard = new Scanner(System.in);
-        String chosen=keyboard.nextLine();
+        String chosen = keyboard.nextLine();
         try {
             int index = Integer.parseInt(chosen);
             return flights.get(index - 1);
@@ -48,10 +48,45 @@ public class Employee extends User {
             System.out.println("Index " + (Integer.parseInt(chosen) - 1) +" is out of bound");
         }
         return null;
-        }
+    }
 
     void bookTicket(Flight f, Customer c) {
         Booking b = new Booking();
         b.bookSeat(f, c);
+    }
+
+    public Ticket chooseTicket(Customer customer) {
+        ArrayList<Ticket> tickets = new ArrayList<Ticket>();
+        try {
+            tickets = (ArrayList<Ticket>) customer.getTickets();
+        }catch (NullPointerException e){
+            System.out.println("You have no tickets to cancel");
+            return null;
+        }
+        System.out.println(customer.getFullName()+"'s Tickets");
+        Display.numberedPrint(tickets);
+        System.out.println("Please enter the Ticket you wish to cancel.");
+        Scanner keyboard = new Scanner(System.in);
+        String chosen = keyboard.nextLine();
+        Ticket ticketToCancel = null;
+        try {
+            int index = Integer.parseInt(chosen);
+            ticketToCancel = tickets.get(index - 1);
+        } catch (NumberFormatException nfe) {
+            System.out.println(chosen +" is not a number");
+        } catch (IndexOutOfBoundsException ioobe) {
+            System.out.println("Index " + (Integer.parseInt(chosen) - 1) +" is out of bound");
+        }
+        if (ticketToCancel == null){
+            System.out.println("Lets Try again");
+            ticketToCancel = chooseTicket(customer);
+            return ticketToCancel;
+        }
+        return ticketToCancel;
+    }
+
+    void cancelTicket(Customer customer) {
+        Ticket ticket = chooseTicket(customer);
+        Cancellation.cancelTicket(customer,ticket);
     }
 }

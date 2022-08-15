@@ -30,10 +30,19 @@ public class Main {
         user2.greeting();
         Flight chosen = user1.chooseFlight();
         user1.bookTicket(chosen, user2);
+
         Flight chosen2 = user1.chooseFlight();
         user1.bookTicket(chosen2, user3);
+
         Flight chosen3 = user1.chooseFlight();
         user1.bookTicket(chosen3, user2);
+
         Booking.printAllTickets();
+        user1.cancelTicket(user2);
+
+        Flight chosen4 = user1.chooseFlight();
+        user1.bookTicket(chosen4, user3);
+        Booking.printAllTickets();
+
     }
 }
