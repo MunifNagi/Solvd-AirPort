@@ -1,6 +1,6 @@
 package interfaces;
 
-import classes.AirPlane;
+import classes.entity.AirPlane;
 
 public interface IAirPlanes {
     void printAllAirPlanes();

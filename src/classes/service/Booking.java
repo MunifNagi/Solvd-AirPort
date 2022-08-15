@@ -1,6 +1,7 @@
-package classes;
+package classes.service;
 
 import Exceptions.NoFlightChosenException;
+import classes.entity.*;
 import interfaces.BookSeat;
 
 import java.util.ArrayList;

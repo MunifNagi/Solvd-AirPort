@@ -1,4 +1,4 @@
-package classes;
+package classes.entity;
 
 public final class Seat {
     private char letter;

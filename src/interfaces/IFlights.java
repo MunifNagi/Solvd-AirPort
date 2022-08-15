@@ -1,5 +1,5 @@
 package interfaces;
-import classes.Flight;
+import classes.entity.Flight;
 
 import java.util.*;
 

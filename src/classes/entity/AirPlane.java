@@ -1,7 +1,6 @@
-package classes;
+package classes.entity;
 
 import Exceptions.NegativeArgumentValueException;
-import Exceptions.NoFlightChosenException;
 import interfaces.BookSeat;
 
 public class AirPlane implements BookSeat {

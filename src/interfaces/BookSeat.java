@@ -1,7 +1,7 @@
 package interfaces;
 
-import classes.Customer;
-import classes.Flight;
+import classes.entity.Customer;
+import classes.entity.Flight;
 
 public interface BookSeat {
 

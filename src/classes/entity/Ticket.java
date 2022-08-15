@@ -1,4 +1,4 @@
-package classes;
+package classes.entity;
 
 public final class Ticket {
     private Customer customer;

@@ -1,10 +1,10 @@
-package classes;
+package classes.entity;
 
 import Exceptions.InvalidDateException;
+import classes.service.Booking;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,6 +14,7 @@ public class Customer extends User {
         super(fullName,DOB);
         this.tickets = new HashMap<>();
         Booking.ticketsBooked.put(this,new ArrayList<Ticket>());
+        greeting();
     }
 
     public void addTicket(Ticket t) {

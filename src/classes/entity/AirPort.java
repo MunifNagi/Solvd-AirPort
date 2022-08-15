@@ -1,5 +1,6 @@
-package classes;
+package classes.entity;
 
+import classes.service.Display;
 import interfaces.IAirPlanes;
 import interfaces.IFlights;
 

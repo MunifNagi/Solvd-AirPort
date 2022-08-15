@@ -1,4 +1,10 @@
-package classes;
+package classes.service;
+
+import classes.entity.Customer;
+import classes.entity.Flight;
+import classes.entity.Seat;
+import classes.entity.Ticket;
+import classes.entity.AirPlane;
 
 public class Cancellation {
     public static void cancelTicket(Customer customer, Ticket t){

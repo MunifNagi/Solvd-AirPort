@@ -1,6 +1,9 @@
-package classes;
+package classes.entity;
 
 import Exceptions.InvalidDateException;
+import classes.service.Display;
+import classes.service.Booking;
+import classes.service.Cancellation;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -10,6 +13,7 @@ public class Employee extends User {
     public Employee(String fullName, String DOB, AirPort ap) throws InvalidDateException {
         super(fullName, DOB);
         this.employer = ap;
+        greeting();
     }
     @Override
     public String getFullName() {
@@ -50,7 +54,7 @@ public class Employee extends User {
         return null;
     }
 
-    void bookTicket(Flight f, Customer c) {
+    public void bookTicket(Flight f, Customer c) {
         Booking b = new Booking();
         b.bookSeat(f, c);
     }
@@ -85,7 +89,7 @@ public class Employee extends User {
         return ticketToCancel;
     }
 
-    void cancelTicket(Customer customer) {
+    public void cancelTicket(Customer customer) {
         Ticket ticket = chooseTicket(customer);
         Cancellation.cancelTicket(customer,ticket);
     }

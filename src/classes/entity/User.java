@@ -1,4 +1,4 @@
-package classes;
+package classes.entity;
 
 import Exceptions.InvalidDateException;
 import Exceptions.NoFlightChosenException;
