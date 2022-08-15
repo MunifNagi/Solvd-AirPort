@@ -2,3 +2,5 @@
 /shelf/
 out/
 .idea/
+target/
+**/.DS_Store
