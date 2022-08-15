@@ -1,5 +1,7 @@
-package com.solvd.airport.classes;
+package com.solvd.airport.classes.entity;
 
+
+import com.solvd.airport.classes.service.Booking;
 
 import java.util.ArrayList;
 import java.util.Scanner;

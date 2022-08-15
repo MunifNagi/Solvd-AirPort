@@ -1,6 +1,6 @@
 package com.solvd.airport;
 
-import com.solvd.airport.classes.*;
+import com.solvd.airport.classes.entity.*;
 
 public class AirportApplication {
 

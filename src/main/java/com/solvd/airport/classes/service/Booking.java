@@ -1,6 +1,10 @@
-package com.solvd.airport.classes;
+package com.solvd.airport.classes.service;
 
 
+import com.solvd.airport.classes.entity.Customer;
+import com.solvd.airport.classes.entity.Flight;
+import com.solvd.airport.classes.entity.Ticket;
+import com.solvd.airport.classes.entity.AirPlane;
 import com.solvd.airport.interfaces.BookSeat;
 import java.util.Scanner;
 
@@ -46,7 +50,7 @@ public class Booking implements BookSeat {
             return;
         }
         checkAvailability(p);
-        String seatNumber=chooseSeat(p);
+        String seatNumber = chooseSeat(p);
         char[][] seats = p.getSeats();
         int row = seatNumber.charAt(0) - '1';
         int col = seatNumber.charAt(1) - 'A';

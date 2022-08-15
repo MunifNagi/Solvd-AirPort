@@ -1,4 +1,4 @@
-package com.solvd.airport.classes;
+package com.solvd.airport.classes.entity;
 
 
 public final class Seat {
