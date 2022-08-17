@@ -1,12 +1,14 @@
 package com.solvd.airport;
 
 import com.solvd.airport.classes.entity.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class AirportApplication {
+	private static final Logger logger = LogManager.getLogger(AirportApplication.class);
 
 	public static void main(String[] args) {
-
-//		SpringApplication.run(AirportApplication.class, args);
+		logger.trace("Starting The Applications");
 		AirPort Ezeiza = new AirPort("Ezeiza", " Buenos Aires");
 		AirPort JFK = new AirPort("JFK", "New York");
 		AirPort LHR = new AirPort("LHR", "London");
@@ -25,9 +27,12 @@ public class AirportApplication {
 		user1.greeting();
 		user2.greeting();
 		Flight chosen = user1.chooseFlight();
+		if (chosen == null){
+			logger.warn("No Flight has been chosen");
+		}
 		user1.bookTicket(chosen, user2);
 		user2.getTickets();
-//		SpringApplication.exit(ApplicationContext);
+		logger.info("Exiting application.");
 	}
 
 }
