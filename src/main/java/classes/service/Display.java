@@ -10,6 +10,7 @@ public abstract class Display {
             System.out.println(iter.next());
         }
     }
+
     public static void numberedPrint(List<?> items){
         int i = 0;
         for (Iterator iter = items.iterator(); iter.hasNext();) {

@@ -30,7 +30,9 @@ public class Booking implements BookSeat {
         int row;
         int col;
         do {
-            if (seatNumber!=null){System.out.println("Input error. Enter seat to assign (such as '1A')," + "or -1 to cancel.");}
+            if (seatNumber != null) {
+                System.out.println("Input error. Enter seat to assign (such as '1A')," + "or -1 to cancel.");
+            }
             seatNumber = keyboard.nextLine();
             if (seatNumber.equals("-1")) {
                 System.out.println("Thank you!\n");
@@ -39,7 +41,7 @@ public class Booking implements BookSeat {
             if (!(seatNumber.length() == 2)) {
                 row=-1;
                 col=-1;
-            }else {
+            } else {
                 row = seatNumber.charAt(0) - '1';
                 col = seatNumber.charAt(1) - 'A';
             }
@@ -48,8 +50,8 @@ public class Booking implements BookSeat {
     }
 
     public void bookSeat(Flight f, Customer customer) {
-        if (f == null){
-            throw new NoFlightChosenException("Flight is null, so there will be no AirPlane associated with it to book",new NullPointerException());
+        if (f == null) {
+            throw new NoFlightChosenException("Flight is null, so there will be no AirPlane associated with it to book", new NullPointerException());
         }
         AirPlane p = f.getAirPlane();;
         checkAvailability(p);
@@ -62,7 +64,7 @@ public class Booking implements BookSeat {
             Ticket t = new Ticket(customer, f, seatNumber);
             customer.addTicket(t);
             ticketsBooked.get(customer).add(t);
-            p.bookSeat(null,null);
+            p.bookSeat(null, null);
             System.out.println(" ");
             p.printSeats();
             System.out.println("you are booked, your seat is " + seatNumber);

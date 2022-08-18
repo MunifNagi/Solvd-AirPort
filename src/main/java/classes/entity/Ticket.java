@@ -24,10 +24,10 @@ public final class Ticket {
 
     public Customer getCustomer() {
         return this.customer;
-
     }
 
     public Flight getFlight() {
         return this.flight;
     }
+
 }

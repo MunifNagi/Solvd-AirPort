@@ -18,12 +18,12 @@ public class AirPort implements IFlights, IAirPlanes {
         this.city = city;
         this.departingFlights = new ArrayList<Flight>();
         this.arrivingFlights = new ArrayList<Flight>();
-        this.airPlanes= new ArrayList<AirPlane>();
+        this.airPlanes = new ArrayList<AirPlane>();
     }
 
     @Override
     public String toString() {
-        return "\nAirport Information:" + "\tName: " + name + "\tcity: " + city;
+        return "\n Airport Information:" + "\t Name: " + name + "\t city: " + city;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class AirPort implements IFlights, IAirPlanes {
     }
 
     @Override
-    public int hashCode(){
+    public int hashCode() {
         int result = 17;
         result = 31 * result + this.name.hashCode();
         result = 31 * result + this.city.hashCode();
@@ -47,15 +47,15 @@ public class AirPort implements IFlights, IAirPlanes {
     }
 
     public String getCity() {
-        return city;
+        return this.city;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public ArrayList<Flight> getDepartingFlights() {
-        return departingFlights;
+        return this.departingFlights;
     }
 
     public void addFlight(Flight flight, ArrayList<Flight> f) {
@@ -63,16 +63,16 @@ public class AirPort implements IFlights, IAirPlanes {
     }
 
     public void printAllFlights() {
-        if (departingFlights.size() == 0) {
-            System.out.println("No Departing flights from " + name);
+        if (this.departingFlights.size() == 0) {
+            System.out.println("No Departing flights from " + this.name);
         } else {
-            System.out.println("Departing flights from " + name);
+            System.out.println("Departing flights from " + this.name);
             Display.print(this.departingFlights);
         }
-        if (arrivingFlights.size() == 0) {
-            System.out.println("No arriving flights from " + name + "\n");
+        if (this.arrivingFlights.size() == 0) {
+            System.out.println("No arriving flights from " + this.name + "\n");
         } else {
-            System.out.println("Arriving flights from " + name);
+            System.out.println("Arriving flights from " + this.name);
             Display.print(this.arrivingFlights);
         }
 

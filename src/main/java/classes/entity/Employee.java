@@ -19,6 +19,7 @@ public class Employee extends User {
     public String getFullName() {
         return this.fullName;
     }
+
     @Override
     String getDOB() {
         return this.birthDate;
@@ -29,11 +30,12 @@ public class Employee extends User {
         System.out.println("DOB: " + this.birthDate);
         System.out.println("I'm an employee in this Airport");
     }
+
     public Flight chooseFlight() {
         ArrayList<Flight> flights = new ArrayList<Flight>();
         try {
             flights = this.employer.getDepartingFlights();
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             System.out.println("Airport is null, so there are no flights");
             return null;
         }
@@ -63,7 +65,7 @@ public class Employee extends User {
         ArrayList<Ticket> tickets = new ArrayList<Ticket>();
         try {
             tickets = (ArrayList<Ticket>) customer.getTickets();
-        }catch (NullPointerException e){
+        } catch(NullPointerException e) {
             System.out.println("You have no tickets to cancel");
             return null;
         }
@@ -81,7 +83,7 @@ public class Employee extends User {
         } catch (IndexOutOfBoundsException ioobe) {
             System.out.println("Index " + (Integer.parseInt(chosen) - 1) +" is out of bound");
         }
-        if (ticketToCancel == null){
+        if (ticketToCancel == null) {
             System.out.println("Lets Try again");
             ticketToCancel = chooseTicket(customer);
             return ticketToCancel;

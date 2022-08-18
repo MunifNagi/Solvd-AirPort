@@ -25,6 +25,7 @@ public class Airlines implements IFlights, IAirPlanes {
         System.out.println("Airlines flights");
         Display.print(this.flights);
     }
+
     public void printAllAirPlanes() {
         System.out.println("Airlines Airplanes");
         Display.print(this.airPlanes);
@@ -33,6 +34,7 @@ public class Airlines implements IFlights, IAirPlanes {
     public void addFlight(Flight flight, ArrayList<Flight> flights) {
         flights.add(flight);
     }
+
     public void addAirPlane(AirPlane plane) {
         this.airPlanes.add(plane);
     }

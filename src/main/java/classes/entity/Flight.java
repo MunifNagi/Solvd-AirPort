@@ -11,7 +11,7 @@ public class Flight {
     public Flight(AirPort ori, AirPort des, int cost, AirPlane plane) {
         this.origin = ori;
         this.destination = des;
-        if (cost < 0){
+        if (cost < 0) {
             throw new NegativeArgumentValueException("Cost for the flight can not be negative");
         }
         this.cost = cost;
@@ -39,7 +39,7 @@ public class Flight {
     }
 
     @Override
-    public int hashCode(){
+    public int hashCode() {
         int result = 17;
         result = 31 * result + this.origin.hashCode();
         result = 31 * result + this.cost;

@@ -15,7 +15,9 @@ public class AirPlane implements BookSeat {
     public AirPlane(String planeName, String model, int rows, int cols) {
         this.name = planeName;
         this.modelNumber = model;
-        if (rows < 1 || cols < 1){throw new NegativeArgumentValueException("Airplane contains negative number of rows or cols!");}
+        if (rows < 1 || cols < 1) {
+            throw new NegativeArgumentValueException("Airplane contains negative number of rows or cols!");
+        }
         this.rows = rows;
         this.cols = cols;
         this.capacity = cols * rows;
@@ -26,8 +28,8 @@ public class AirPlane implements BookSeat {
         this.seats = new char[this.rows][this.cols];
         int firstCol = (int) 'A';
         for (int r = 0; r < this.rows; r++) {
-            for (int c = 0; c <this.cols; c++ ){
-                seats[r][c] = (char) ( firstCol + c);
+            for (int c = 0; c <this.cols; c++ ) {
+                seats[r][c] = (char) (firstCol + c);
             }
         }
     }
@@ -39,7 +41,7 @@ public class AirPlane implements BookSeat {
     public void printSeats() {
         System.out.println("Row");
         for (int i = 0; i < this.seats.length; i++) {
-            System.out.print((i + 1)+ "  ");
+            System.out.print((i + 1) + "  ");
             for (int c = 0; c < this.cols; c++){
                 System.out.print(seats[i][c]+ " ");
             }
@@ -51,7 +53,6 @@ public class AirPlane implements BookSeat {
 
     public String getName() {
         return this.name;
-
     }
 
     public int getCapacity() {
@@ -100,7 +101,7 @@ public class AirPlane implements BookSeat {
     }
 
     @Override
-    public int hashCode(){
+    public int hashCode() {
         int result = 17;
         result = 31 * result + this.name.hashCode();
         result = 31 * result + this.rows;
