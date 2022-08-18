@@ -9,7 +9,7 @@ public class AirportApplication {
 
 	public static void main(String[] args) {
 		logger.trace("Starting The Applications");
-		AirPort Ezeiza = new AirPort("Ezeiza", " Buenos Aires");
+		AirPort Ezeiza = new AirPort("Ezeiza", "Buenos Aires");
 		AirPort JFK = new AirPort("JFK", "New York");
 		AirPort LHR = new AirPort("LHR", "London");
 
@@ -22,8 +22,8 @@ public class AirportApplication {
 		Flight f3 = new Flight(JFK, LHR, 9, Boeing3);
 //        JFK.getAllFlights();
 //        JFK.getAllAirPlanes();
-		Employee user1 = new Employee("John","10/22/1980", JFK);
-		Customer user2 = new Customer("Alex","6/18/1997");
+		Employee user1 = new Employee("John", "10/22/1980", JFK);
+		Customer user2 = new Customer("Alex", "6/18/1997");
 		user1.greeting();
 		user2.greeting();
 		Flight chosen = user1.chooseFlight();

@@ -31,4 +31,5 @@ public final class Ticket {
     public Flight getFlight() {
         return this.flight;
     }
+
 }

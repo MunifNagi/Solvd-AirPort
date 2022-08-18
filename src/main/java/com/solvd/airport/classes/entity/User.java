@@ -9,7 +9,7 @@ public abstract class User {
 
     public User(String fn, String DOB) {
         this.fullName = fn;
-        this.birthDate=DOB;
+        this.birthDate = DOB;
     }
 
     abstract String getFullName();

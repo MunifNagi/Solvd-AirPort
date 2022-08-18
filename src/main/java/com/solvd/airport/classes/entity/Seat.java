@@ -43,6 +43,7 @@ public final class Seat {
     public Flight getFlight() {
         return flight;
     }
+
     public AirPlane getAirPlane() {
         return this.airPlane;
     }

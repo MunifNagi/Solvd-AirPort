@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Customer extends User {
     private ArrayList<Ticket> tickets;
     public Customer(String fullName, String DOB) {
-        super(fullName,DOB);
+        super(fullName, DOB);
         this.tickets = new ArrayList<Ticket>();
     }
     public void addTicket(Ticket t) {
@@ -22,10 +22,12 @@ public class Customer extends User {
     String getFullName() {
         return this.fullName;
     }
+
     @Override
     String getDOB() {
         return this.birthDate;
     }
+
     @Override
     public void greeting() {
         System.out.println("Hello my name is " + this.fullName);

@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Employee extends User {
     private AirPort airport;
     public Employee(String fullName, String DOB, AirPort ap) {
-        super(fullName,DOB);
+        super(fullName, DOB);
         airport = ap;
     }
     @Override
@@ -46,7 +46,8 @@ public class Employee extends User {
         Booking b = new Booking();
         b.bookSeat(f, c);
     }
-    }
+}
+
 
     
 

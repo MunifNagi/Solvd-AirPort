@@ -39,7 +39,7 @@ public class AirPort implements IFlights, IAirPlanes {
     }
 
     @Override
-    public int hashCode(){
+    public int hashCode() {
         int result = 17;
         result = 31 * result + this.name.hashCode();
         result = 31 * result + this.city.hashCode();
@@ -53,6 +53,7 @@ public class AirPort implements IFlights, IAirPlanes {
     public String getName() {
         return name;
     }
+
     public ArrayList<Flight> getDepartingFlights() {
         return departingFlights;
     }
