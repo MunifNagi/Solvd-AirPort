@@ -22,8 +22,10 @@ public class AirportApplication {
 		Flight f1 = new Flight(JFK, Ezeiza, 7, Boeing);
 		Flight f2 = new Flight(JFK, LHR, 9, Boeing2);
 		Flight f3 = new Flight(JFK, LHR, 9, Boeing3);
-//        JFK.getAllFlights();
-//        JFK.getAllAirPlanes();
+
+        //JFK.getAllFlights();
+        //JFK.getAllAirPlanes();
+
 		Employee user1 = new Employee("John", "10/22/1980", JFK);
 		Customer user2 = new Customer("Alex", "06/18/1997");
 		Customer user3 = new Customer("John", "07/29/1995");

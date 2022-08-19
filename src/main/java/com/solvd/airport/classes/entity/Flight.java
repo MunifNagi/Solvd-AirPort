@@ -24,7 +24,7 @@ public class Flight {
 
     public String toString() {
         return "Flight Information:\t"
-                + this.airPlane.getName() + "\tFrom: " + this.origin.getCity() + " to " + this.destination.getCity();
+                + this.airPlane.getName() + "\t From: " + this.origin.getCity() + " to " + this.destination.getCity();
     }
 
     @Override

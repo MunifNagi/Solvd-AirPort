@@ -14,7 +14,7 @@ public abstract class Display {
     public static void numberedPrint(List<?> items){
         int i = 0;
         for (Iterator iter = items.iterator(); iter.hasNext();) {
-            System.out.println(++i +"-"+iter.next());
+            System.out.println(++i + "-" +iter.next());
         }
     }
 

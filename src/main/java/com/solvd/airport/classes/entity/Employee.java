@@ -50,7 +50,7 @@ public class Employee extends User {
             int index = Integer.parseInt(chosen);
             return flights.get(index - 1);
         } catch (NumberFormatException nfe) {
-            System.out.println(chosen +" is not a number");
+            System.out.println(chosen + " is not a number");
         } catch (IndexOutOfBoundsException ioobe) {
             System.out.println("Index " + (Integer.parseInt(chosen) - 1) +" is out of bound");
         }
@@ -80,7 +80,7 @@ public class Employee extends User {
             int index = Integer.parseInt(chosen);
             ticketToCancel = tickets.get(index - 1);
         } catch (NumberFormatException nfe) {
-            System.out.println(chosen +" is not a number");
+            System.out.println(chosen + " is not a number");
         } catch (IndexOutOfBoundsException ioobe) {
             System.out.println("Index " + (Integer.parseInt(chosen) - 1) +" is out of bound");
         }
@@ -94,6 +94,6 @@ public class Employee extends User {
 
     public void cancelTicket(Customer customer) {
         Ticket ticket = chooseTicket(customer);
-        Cancellation.cancelTicket(customer,ticket);
+        Cancellation.cancelTicket(customer, ticket);
     }
 }

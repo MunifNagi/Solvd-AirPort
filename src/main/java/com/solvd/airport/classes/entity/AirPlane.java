@@ -28,7 +28,7 @@ public class AirPlane implements BookSeat {
         this.seats = new char[this.rows][this.cols];
         int firstCol = (int) 'A';
         for (int r = 0; r < this.rows; r++) {
-            for (int c = 0; c <this.cols; c++ ) {
+            for (int c = 0; c < this.cols; c++ ) {
                 seats[r][c] = (char) (firstCol + c);
             }
         }

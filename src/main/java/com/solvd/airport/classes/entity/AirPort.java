@@ -1,8 +1,8 @@
 package com.solvd.airport.classes.entity;
 
 
-import com.solvd.airport.interfaces.IAirPlanes;
-import com.solvd.airport.interfaces.IFlights;
+import com.solvd.airport.classes.service.Display;
+import com.solvd.airport.interfaces.*;
 
 import java.util.*;
 
@@ -13,12 +13,12 @@ public class AirPort implements IFlights, IAirPlanes {
     public ArrayList<Flight> arrivingFlights;
     public ArrayList<AirPlane> airPlanes;
 
-    public AirPort(String n, String c) {
-        name = n;
-        city = c;
-        departingFlights = new ArrayList<Flight>();
-        arrivingFlights = new ArrayList<Flight>();
-        airPlanes= new ArrayList<AirPlane>();
+    public AirPort(String name, String city) {
+        this.name = name;
+        this.city = city;
+        this.departingFlights = new ArrayList<Flight>();
+        this.arrivingFlights = new ArrayList<Flight>();
+        this.airPlanes = new ArrayList<AirPlane>();
     }
 
     @Override
@@ -47,45 +47,39 @@ public class AirPort implements IFlights, IAirPlanes {
     }
 
     public String getCity() {
-        return city;
+        return this.city;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public ArrayList<Flight> getDepartingFlights() {
-        return departingFlights;
+        return this.departingFlights;
     }
     public void addFlight(Flight flight, ArrayList<Flight> f) {
         f.add(flight);
     }
 
     public void getAllFlights() {
-        if (departingFlights.size() == 0) {
-            System.out.println("No Departing flights from " + name);
+        if (this.departingFlights.size() == 0) {
+            System.out.println("No Departing flights from " + this.name);
         } else {
-            System.out.println("Departing flights from " + name);
-            for (int i = 0; i < departingFlights.size(); i++) {
-                System.out.println(departingFlights.get(i) + " ");
-            }
+            System.out.println("Departing flights from " + this.name);
+            Display.print(this.departingFlights);
         }
-        if (arrivingFlights.size() == 0) {
-            System.out.println("No arriving flights from " + name + "\n");
+        if (this.arrivingFlights.size() == 0) {
+            System.out.println("No arriving flights from " + this.name + "\n");
         } else {
             System.out.println("Arriving flights from " + name);
-            for (int i = 0; i < arrivingFlights.size(); i++) {
-                System.out.println(arrivingFlights.get(i) + " ");
-            }
+            Display.print(this.arrivingFlights);
         }
 
     }
 
     public void getAllAirPlanes() {
         System.out.println("Airplanes in airport now");
-        for (int i = 0; i < airPlanes.size(); i++) {
-            System.out.println(airPlanes.get(i) + " ");
-        }
+        Display.print(this.airPlanes);
     }
 
     public void addAirPlane(AirPlane plane) {
