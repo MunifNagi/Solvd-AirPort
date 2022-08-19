@@ -1,6 +1,6 @@
-package interfaces;
+package com.solvd.airport.interfaces;
 
-import classes.entity.AirPlane;
+import com.solvd.airport.classes.entity.AirPlane;
 
 public interface IAirPlanes {
     void printAllAirPlanes();

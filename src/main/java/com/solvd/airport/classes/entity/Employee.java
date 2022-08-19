@@ -1,9 +1,10 @@
-package classes.entity;
+package com.solvd.airport.classes.entity;
 
-import Exceptions.InvalidDateException;
-import classes.service.Display;
-import classes.service.Booking;
-import classes.service.Cancellation;
+import com.solvd.airport.Exceptions.*;
+import com.solvd.airport.interfaces.*;
+import com.solvd.airport.classes.service.Display;
+import com.solvd.airport.classes.service.Booking;
+import com.solvd.airport.classes.service.Cancellation;
 
 import java.util.ArrayList;
 import java.util.Scanner;

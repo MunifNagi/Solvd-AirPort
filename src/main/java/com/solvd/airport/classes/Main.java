@@ -1,8 +1,8 @@
-package classes;
+package com.solvd.airport.classes;
 
-import Exceptions.InvalidDateException;
-import classes.entity.*;
-import classes.service.Booking;
+import com.solvd.airport.Exceptions.*;
+import com.solvd.airport.classes.entity.*;
+import com.solvd.airport.classes.service.Booking;
 
 public class Main {
     public static void main(String[] args) throws InvalidDateException {

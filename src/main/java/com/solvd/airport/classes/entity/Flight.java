@@ -1,6 +1,7 @@
-package classes.entity;
+package com.solvd.airport.classes.entity;
 
-import Exceptions.NegativeArgumentValueException;
+import com.solvd.airport.Exceptions.*;
+import com.solvd.airport.interfaces.*;
 
 public class Flight {
     private AirPlane airPlane;

@@ -1,4 +1,4 @@
-package classes.service;
+package com.solvd.airport.classes.service;
 
 import java.util.Iterator;
 import java.util.List;

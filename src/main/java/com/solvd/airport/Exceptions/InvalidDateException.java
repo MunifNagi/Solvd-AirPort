@@ -1,6 +1,6 @@
-package Exceptions;
+package com.solvd.airport.Exceptions;
 
-public class InvalidDateException extends Exception{
+public class InvalidDateException extends Exception {
     public InvalidDateException(){
     }
 

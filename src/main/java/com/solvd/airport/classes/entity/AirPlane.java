@@ -1,7 +1,7 @@
-package classes.entity;
+package com.solvd.airport.classes.entity;
 
-import Exceptions.NegativeArgumentValueException;
-import interfaces.BookSeat;
+import com.solvd.airport.Exceptions.*;
+import com.solvd.airport.interfaces.*;
 
 public class AirPlane implements BookSeat {
     private String name;

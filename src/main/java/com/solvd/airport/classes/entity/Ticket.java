@@ -1,4 +1,4 @@
-package classes.entity;
+package com.solvd.airport.classes.entity;
 
 public final class Ticket {
     private Customer customer;

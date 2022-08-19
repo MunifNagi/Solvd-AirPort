@@ -1,10 +1,10 @@
-package classes.service;
+package com.solvd.airport.classes.service;
 
-import classes.entity.Customer;
-import classes.entity.Flight;
-import classes.entity.Seat;
-import classes.entity.Ticket;
-import classes.entity.AirPlane;
+import com.solvd.airport.classes.entity.Customer;
+import com.solvd.airport.classes.entity.Flight;
+import com.solvd.airport.classes.entity.Seat;
+import com.solvd.airport.classes.entity.Ticket;
+import com.solvd.airport.classes.entity.AirPlane;
 
 public class Cancellation {
     public static void cancelTicket(Customer customer, Ticket t){

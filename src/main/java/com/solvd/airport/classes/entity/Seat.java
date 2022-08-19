@@ -1,4 +1,5 @@
-package classes.entity;
+package com.solvd.airport.classes.entity;
+import com.solvd.airport.interfaces.*;
 
 public final class Seat {
     private char letter;

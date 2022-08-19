@@ -1,8 +1,8 @@
-package classes.service;
+package com.solvd.airport.classes.service;
 
-import Exceptions.NoFlightChosenException;
-import classes.entity.*;
-import interfaces.BookSeat;
+import com.solvd.airport.Exceptions.*;
+import com.solvd.airport.classes.entity.*;
+import com.solvd.airport.interfaces.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;

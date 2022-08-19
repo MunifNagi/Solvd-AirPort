@@ -1,12 +1,10 @@
-package classes.entity;
+package com.solvd.airport.classes.entity;
 
-import Exceptions.InvalidDateException;
-import Exceptions.NoFlightChosenException;
+import com.solvd.airport.Exceptions.*;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 
 public abstract class User {
     protected String fullName;
@@ -34,7 +32,7 @@ public abstract class User {
             dateFormat.parse(date);
             return true;
         } catch (Exception e) {
-            throw new NoFlightChosenException("Date is Invalid", new ParseException("could not parse date", 0));
+            throw new InvalidDateException("Date is Invalid", new ParseException("could not parse date", 0));
         }
     }
 }

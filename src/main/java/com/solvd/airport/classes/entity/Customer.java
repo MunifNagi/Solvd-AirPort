@@ -1,7 +1,7 @@
-package classes.entity;
+package com.solvd.airport.classes.entity;
 
-import Exceptions.InvalidDateException;
-import classes.service.Booking;
+import com.solvd.airport.Exceptions.*;
+import com.solvd.airport.classes.service.Booking;
 
 import java.util.ArrayList;
 import java.util.HashMap;

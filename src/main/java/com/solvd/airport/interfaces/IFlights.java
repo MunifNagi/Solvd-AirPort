@@ -1,5 +1,5 @@
-package interfaces;
-import classes.entity.Flight;
+package com.solvd.airport.interfaces;
+import com.solvd.airport.classes.entity.Flight;
 
 import java.util.*;
 

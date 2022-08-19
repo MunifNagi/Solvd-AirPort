@@ -1,8 +1,7 @@
-package classes.entity;
+package com.solvd.airport.classes.entity;
 
-import classes.service.Display;
-import interfaces.IAirPlanes;
-import interfaces.IFlights;
+import com.solvd.airport.classes.service.Display;
+import com.solvd.airport.interfaces.*;
 
 import java.util.*;
 
