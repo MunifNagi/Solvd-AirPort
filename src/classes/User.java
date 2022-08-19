@@ -30,7 +30,7 @@ public abstract class User {
             dateFormat.parse(date);
             return true;
         } catch (Exception e) {
-            throw new NoFlightChosenException("Date is Invalid",new ParseException("could not parse date",0));
+            throw new InvalidDateException("Date is Invalid",new ParseException("could not parse date",0));
         }
     }
 
