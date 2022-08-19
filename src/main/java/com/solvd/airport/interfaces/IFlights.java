@@ -4,7 +4,7 @@ import com.solvd.airport.classes.entity.Flight;
 import java.util.*;
 
 public interface IFlights {
-    void printAllFlights();
+    void getAllFlights();
 
     void addFlight(Flight F, ArrayList<Flight> Flights);
 }

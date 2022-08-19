@@ -20,12 +20,12 @@ public class Airlines implements IFlights, IAirPlanes {
         return this.name;
     }
 
-    public void printAllFlights() {
+    public void getAllFlights() {
         System.out.println("Airlines flights");
         Display.print(this.flights);
     }
 
-    public void printAllAirPlanes() {
+    public void getAllAirPlanes() {
         System.out.println("Airlines Airplanes");
         Display.print(this.airPlanes);
     }
