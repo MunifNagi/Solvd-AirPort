@@ -16,6 +16,7 @@ public class Employee extends User {
         this.employer = ap;
         greeting();
     }
+
     @Override
     public String getFullName() {
         return this.fullName;
@@ -36,7 +37,7 @@ public class Employee extends User {
         ArrayList<Flight> flights = new ArrayList<Flight>();
         try {
             flights = this.employer.getDepartingFlights();
-        } catch (NullPointerException e) {
+        } catch(NullPointerException e) {
             System.out.println("Airport is null, so there are no flights");
             return null;
         }
@@ -49,9 +50,9 @@ public class Employee extends User {
         try {
             int index = Integer.parseInt(chosen);
             return flights.get(index - 1);
-        } catch (NumberFormatException nfe) {
+        } catch(NumberFormatException nfe) {
             System.out.println(chosen + " is not a number");
-        } catch (IndexOutOfBoundsException ioobe) {
+        } catch(IndexOutOfBoundsException ioobe) {
             System.out.println("Index " + (Integer.parseInt(chosen) - 1) +" is out of bound");
         }
         return null;
@@ -79,12 +80,12 @@ public class Employee extends User {
         try {
             int index = Integer.parseInt(chosen);
             ticketToCancel = tickets.get(index - 1);
-        } catch (NumberFormatException nfe) {
+        } catch(NumberFormatException nfe) {
             System.out.println(chosen + " is not a number");
-        } catch (IndexOutOfBoundsException ioobe) {
+        } catch(IndexOutOfBoundsException ioobe) {
             System.out.println("Index " + (Integer.parseInt(chosen) - 1) +" is out of bound");
         }
-        if (ticketToCancel == null) {
+        if(ticketToCancel == null) {
             System.out.println("Lets Try again");
             ticketToCancel = chooseTicket(customer);
             return ticketToCancel;

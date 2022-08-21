@@ -12,7 +12,7 @@ public class Flight {
     public Flight(AirPort ori, AirPort des, int cost, AirPlane plane) {
         this.origin = ori;
         this.destination = des;
-        if (cost < 0) {
+        if(cost < 0) {
             throw new NegativeArgumentValueException("Cost for the flight can not be negative");
         }
         this.cost = cost;
@@ -23,16 +23,15 @@ public class Flight {
     }
 
     public String toString() {
-        return "Flight Information:\t"
-                + this.airPlane.getName() + "\t From: " + this.origin.getCity() + " to " + this.destination.getCity();
+        return String.format("Flight Information: %s \t %s to %s", this.airPlane.getName(), this.origin.getCity(), this.destination.getCity());
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null) {
+        if(obj == null) {
             return false;
         }
-        if (!(obj instanceof Flight)) {
+        if(!(obj instanceof Flight)) {
             return false;
         }
         Flight f = (Flight) obj;

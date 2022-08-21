@@ -16,16 +16,16 @@ public final class Seat {
 
     @Override
     public String toString() {
-        return this.num + "" + this.letter + "  " + this.flight ;
+        return String.format("%c%c %s", this.num, this.letter, this.flight);
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null) {
+        if(obj == null) {
             return false;
         }
 
-        if (!(obj instanceof Flight)) {
+        if(!(obj instanceof Flight)) {
             return false;
         }
         Seat s  = (Seat) obj;

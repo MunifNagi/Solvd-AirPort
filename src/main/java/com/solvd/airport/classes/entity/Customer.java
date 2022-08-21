@@ -13,17 +13,17 @@ public class Customer extends User {
     public Customer(String fullName, String DOB) throws InvalidDateException {
         super(fullName, DOB);
         this.tickets = new HashMap<>();
-        Booking.ticketsBooked.put(this, new ArrayList<Ticket>());
+        HashMap<User, ArrayList<Ticket>> ticketsBooked = Booking.getBookedTickets();
+        ticketsBooked.put(this, new ArrayList<Ticket>());
         greeting();
     }
 
     public void addTicket(Ticket t) {
-        this.tickets.put(t.hashCode(),t);
+        this.tickets.put(t.hashCode(), t);
     }
 
     public List getTickets() {
-        //getting a list of all the customer tickets
-        return  this.tickets.values().stream().collect((Collectors.toList()));
+        return this.tickets.values().stream().collect((Collectors.toList()));
 
     }
     @Override
@@ -45,7 +45,6 @@ public class Customer extends User {
 
     @Override
     public String toString() {
-        return "Name: " + this.fullName + "   " + " DOB: " + this.getDOB();
+        return String.format("Name: %s \t DOB: %s", this.fullName, this.getDOB());
     }
-
 }

@@ -15,7 +15,7 @@ public class AirPlane implements BookSeat {
     public AirPlane(String planeName, String model, int rows, int cols) {
         this.name = planeName;
         this.modelNumber = model;
-        if (rows < 1 || cols < 1) {
+        if(rows < 1 || cols < 1) {
             throw new NegativeArgumentValueException("Airplane contains negative number of rows or cols!");
         }
         this.rows = rows;
@@ -84,16 +84,15 @@ public class AirPlane implements BookSeat {
 
     @Override
     public String toString() {
-        return "Airplane Information: \t" + this.name + "\tCapacity: "
-                + this.capacity + " seats";
+        return String.format("Airplane Information: %s \t Capacity: %s seats", this.name, this.capacity);
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null) {
+        if(obj == null) {
             return false;
         }
-        if (!(obj instanceof AirPort)) {
+        if(!(obj instanceof AirPort)) {
             return false;
         }
         AirPlane ap = (AirPlane) obj;

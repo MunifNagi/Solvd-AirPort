@@ -23,15 +23,15 @@ public class AirPort implements IFlights, IAirPlanes {
 
     @Override
     public String toString() {
-        return "\nAirport Information:" + "\tName: " + name + "\tcity: " + city;
+        return String.format("\nAirport Information: %s \t city:%s", this.name, this.city);
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null) {
+        if(obj == null) {
             return false;
         }
-        if (!(obj instanceof AirPort)) {
+        if(!(obj instanceof AirPort)) {
             return false;
         }
         AirPort ap = (AirPort) obj;
@@ -62,24 +62,24 @@ public class AirPort implements IFlights, IAirPlanes {
     }
 
     public void getAllFlights() {
-        if (this.departingFlights.size() == 0) {
+        if(this.departingFlights.size() == 0) {
             System.out.println("No Departing flights from " + this.name);
         } else {
             System.out.println("Departing flights from " + this.name);
-            Display.print(this.departingFlights);
+            Display.numberedPrint(this.departingFlights);
         }
-        if (this.arrivingFlights.size() == 0) {
+        if(this.arrivingFlights.size() == 0) {
             System.out.println("No arriving flights from " + this.name + "\n");
         } else {
             System.out.println("Arriving flights from " + name);
-            Display.print(this.arrivingFlights);
+            Display.numberedPrint(this.arrivingFlights);
         }
 
     }
 
     public void getAllAirPlanes() {
-        System.out.println("Airplanes in airport now");
-        Display.print(this.airPlanes);
+        System.out.println("Airplanes in airport now:");
+        Display.numberedPrint(this.airPlanes);
     }
 
     public void addAirPlane(AirPlane plane) {

@@ -1,7 +1,7 @@
 package com.solvd.airport.Exceptions;
 
 public class InvalidDateException extends Exception {
-    public InvalidDateException(){
+    public InvalidDateException() {
     }
 
     public InvalidDateException(String message) {
@@ -12,8 +12,8 @@ public class InvalidDateException extends Exception {
         super(cause);
     }
 
-    public InvalidDateException(String message,Throwable cause){
-        super(message,cause);
+    public InvalidDateException(String message, Throwable cause){
+        super(message, cause);
     }
 
 }

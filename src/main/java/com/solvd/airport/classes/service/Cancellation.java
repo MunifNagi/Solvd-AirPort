@@ -1,22 +1,24 @@
 package com.solvd.airport.classes.service;
 
-import com.solvd.airport.classes.entity.Customer;
-import com.solvd.airport.classes.entity.Flight;
-import com.solvd.airport.classes.entity.Seat;
-import com.solvd.airport.classes.entity.Ticket;
-import com.solvd.airport.classes.entity.AirPlane;
+import com.solvd.airport.classes.entity.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
+/**
+ * Removing tickets from booked tickets and customer's tickets
+ * and marking the seat in the airplane unused
+ */
 public class Cancellation {
     public static void cancelTicket(Customer customer, Ticket t){
-        //removing tickets from booked tickets and customer's tickets
         customer.tickets.remove(t.hashCode());
-        Booking.ticketsBooked.get(customer).remove(t);
-
-        //getting ticket seat and mark seat in the airplane unused
+        HashMap<User, ArrayList<Ticket>> ticketsBooked = Booking.getBookedTickets();
+        ticketsBooked.get(customer).remove(t);
         Seat seat = t.getSeat();
         Flight flight = t.getFlight();
         AirPlane plane = flight.getAirPlane();
         plane.emptySeat(seat);
-
+        String confirmation = String.format("The ticket with the seat number %s%s is canceled.", seat.getNum(),seat.getLetter());
+        System.out.println(confirmation);
     }
 }

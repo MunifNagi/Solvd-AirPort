@@ -1,7 +1,7 @@
 package com.solvd.airport.Exceptions;
 
-public class NegativeArgumentValueException extends  IllegalArgumentException{
-    public NegativeArgumentValueException(){
+public class NegativeArgumentValueException extends  IllegalArgumentException {
+    public NegativeArgumentValueException() {
     }
 
     public NegativeArgumentValueException(String message) {
@@ -12,8 +12,8 @@ public class NegativeArgumentValueException extends  IllegalArgumentException{
         super(cause);
     }
 
-    public NegativeArgumentValueException(String message,Throwable cause) {
-        super(message,cause);
+    public NegativeArgumentValueException(String message, Throwable cause) {
+        super(message, cause);
     }
 
 }

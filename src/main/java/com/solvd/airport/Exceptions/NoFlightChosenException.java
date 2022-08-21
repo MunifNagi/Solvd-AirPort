@@ -1,7 +1,7 @@
 package com.solvd.airport.Exceptions;
 
-public class NoFlightChosenException extends RuntimeException{
-    public NoFlightChosenException(){
+public class NoFlightChosenException extends RuntimeException {
+    public NoFlightChosenException() {
     }
 
     public NoFlightChosenException(String message) {
@@ -12,8 +12,8 @@ public class NoFlightChosenException extends RuntimeException{
         super(cause);
     }
 
-    public NoFlightChosenException(String message,Throwable cause) {
-        super(message,cause);
+    public NoFlightChosenException(String message, Throwable cause) {
+        super(message, cause);
     }
 
 }

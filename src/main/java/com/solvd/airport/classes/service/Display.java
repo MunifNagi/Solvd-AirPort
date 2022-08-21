@@ -3,6 +3,9 @@ package com.solvd.airport.classes.service;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * Class to display list of objects to the console
+ */
 public abstract class Display {
 
     public static void print(List<?> items){

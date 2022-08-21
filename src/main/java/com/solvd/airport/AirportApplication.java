@@ -9,9 +9,9 @@ import org.apache.logging.log4j.Logger;
 public class AirportApplication {
 	private static final Logger logger = LogManager.getLogger(AirportApplication.class);
 
-	public static void main(String[] args) throws InvalidDateException {
-		logger.trace("Starting The Applications");
-		AirPort Ezeiza = new AirPort("Ezeiza", " Buenos Aires");
+	public static void run() {
+
+		AirPort Ezeiza = new AirPort("Ezeiza", "Buenos Aires");
 		AirPort JFK = new AirPort("JFK", "New York");
 		AirPort LHR = new AirPort("LHR", "London");
 
@@ -22,31 +22,49 @@ public class AirportApplication {
 		Flight f1 = new Flight(JFK, Ezeiza, 7, Boeing);
 		Flight f2 = new Flight(JFK, LHR, 9, Boeing2);
 		Flight f3 = new Flight(JFK, LHR, 9, Boeing3);
+		
+		JFK.getAllFlights();
+		JFK.getAllAirPlanes();
 
-        //JFK.getAllFlights();
-        //JFK.getAllAirPlanes();
+		Employee employee = createEmployee("John", "10/22/1980", JFK);
+		Customer customer1 = createCustomer("Alex", "06/18/1997");
+		Customer customer2 = createCustomer("John", "07/29/1995");
 
-		Employee user1 = new Employee("John", "10/22/1980", JFK);
-		Customer user2 = new Customer("Alex", "06/18/1997");
-		Customer user3 = new Customer("John", "07/29/1995");
+		Flight chosen = employee.chooseFlight();
+		employee.bookTicket(chosen, customer1);
 
-		Flight chosen = user1.chooseFlight();
-		user1.bookTicket(chosen, user2);
+		Flight chosen2 = employee.chooseFlight();
+		employee.bookTicket(chosen2, customer2);
 
-		Flight chosen2 = user1.chooseFlight();
-		user1.bookTicket(chosen2, user3);
-
-		Flight chosen3 = user1.chooseFlight();
-		user1.bookTicket(chosen3, user2);
+		Flight chosen3 = employee.chooseFlight();
+		employee.bookTicket(chosen3, customer1);
 
 		Booking.printAllTickets();
-		user1.cancelTicket(user2);
+		employee.cancelTicket(customer1);
 
-		Flight chosen4 = user1.chooseFlight();
-		user1.bookTicket(chosen4, user3);
+		Flight chosen4 = employee.chooseFlight();
+		employee.bookTicket(chosen4, customer2);
+
 		Booking.printAllTickets();
-
-		logger.info("Exiting application.");
 	}
 
+	static Customer createCustomer(String fullName, String DOB) {
+		Customer customer = null;
+		try {
+			customer = new Customer(fullName, DOB);
+		} catch(InvalidDateException e) {
+			logger.error("Invalid BirthDate, user wasn't created");
+		}
+		return customer;
+	}
+
+	static Employee createEmployee(String fullName, String DOB, AirPort airPort) {
+		Employee employee = null;
+		try {
+			employee = new Employee(fullName, DOB, airPort);
+		} catch(InvalidDateException e) {
+			logger.error("Invalid BirthDate, user wasn't created");
+		}
+		return employee;
+	}
 }
