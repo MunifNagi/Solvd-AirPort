@@ -1,8 +1,7 @@
 package com.solvd.airport.classes.entity;
 
-
-import com.solvd.airport.interfaces.IAirPlanes;
-import com.solvd.airport.interfaces.IFlights;
+import com.solvd.airport.classes.service.Display;
+import com.solvd.airport.interfaces.*;
 
 import java.util.*;
 
@@ -15,7 +14,6 @@ public class Airlines implements IFlights, IAirPlanes {
         this.name = Airlines;
         this.flights = new ArrayList<Flight>();
         this.airPlanes = new ArrayList<AirPlane>();
-
     }
 
     public String getName() {
@@ -24,16 +22,12 @@ public class Airlines implements IFlights, IAirPlanes {
 
     public void getAllFlights() {
         System.out.println("Airlines flights");
-        for (int i = 0; i < flights.size(); i++) {
-            System.out.println(flights.get(i) + " ");
-        }
+        Display.print(this.flights);
     }
 
     public void getAllAirPlanes() {
         System.out.println("Airlines Airplanes");
-        for (int i = 0; i < airPlanes.size(); i++) {
-            System.out.println(airPlanes.get(i) + " ");
-        }
+        Display.print(this.airPlanes);
     }
 
     public void addFlight(Flight flight, ArrayList<Flight> flights) {

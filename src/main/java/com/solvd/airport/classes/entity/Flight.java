@@ -1,5 +1,7 @@
 package com.solvd.airport.classes.entity;
 
+import com.solvd.airport.Exceptions.*;
+import com.solvd.airport.interfaces.*;
 
 public class Flight {
     private AirPlane airPlane;
@@ -7,10 +9,13 @@ public class Flight {
     private AirPort destination;
     public int cost;
 
-    public Flight(AirPort ori, AirPort des, int c, AirPlane plane) {
+    public Flight(AirPort ori, AirPort des, int cost, AirPlane plane) {
         this.origin = ori;
         this.destination = des;
-        this.cost = c;
+        if(cost < 0) {
+            throw new NegativeArgumentValueException("Cost for the flight can not be negative");
+        }
+        this.cost = cost;
         this.airPlane = plane;
         this.origin.addFlight(this, origin.departingFlights);
         this.destination.addFlight(this, destination.arrivingFlights);
@@ -18,16 +23,15 @@ public class Flight {
     }
 
     public String toString() {
-        return "Flight Information:\t"
-                + this.airPlane.getName() + "\tFrom: " + this.origin.getCity() + " to " + this.destination.getCity();
+        return String.format("Flight Information: %s \t %s to %s", this.airPlane.getName(), this.origin.getCity(), this.destination.getCity());
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null) {
+        if(obj == null) {
             return false;
         }
-        if (!(obj instanceof Flight)) {
+        if(!(obj instanceof Flight)) {
             return false;
         }
         Flight f = (Flight) obj;
@@ -35,7 +39,7 @@ public class Flight {
     }
 
     @Override
-    public int hashCode(){
+    public int hashCode() {
         int result = 17;
         result = 31 * result + this.origin.hashCode();
         result = 31 * result + this.cost;

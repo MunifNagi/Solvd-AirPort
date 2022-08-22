@@ -1,6 +1,5 @@
 package com.solvd.airport.classes.entity;
 
-
 public final class Ticket {
     private Customer customer;
     private Flight flight;
@@ -15,7 +14,7 @@ public final class Ticket {
 
     @Override
     public String toString() {
-        return this.customer.getFullName() + "\n" + this.seat;
+        return this.seat.toString();
     }
 
     public Seat getSeat() {
@@ -25,7 +24,6 @@ public final class Ticket {
 
     public Customer getCustomer() {
         return this.customer;
-
     }
 
     public Flight getFlight() {

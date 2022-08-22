@@ -1,22 +1,30 @@
 package com.solvd.airport.classes.entity;
 
+import com.solvd.airport.Exceptions.*;
+import com.solvd.airport.classes.service.Booking;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Customer extends User {
-    private ArrayList<Ticket> tickets;
-    public Customer(String fullName, String DOB) {
+    public HashMap<Integer, Ticket> tickets = new HashMap<>();
+    public Customer(String fullName, String DOB) throws InvalidDateException {
         super(fullName, DOB);
-        this.tickets = new ArrayList<Ticket>();
+        this.tickets = new HashMap<>();
+        HashMap<User, ArrayList<Ticket>> ticketsBooked = Booking.getBookedTickets();
+        ticketsBooked.put(this, new ArrayList<Ticket>());
+        greeting();
     }
+
     public void addTicket(Ticket t) {
-        this.tickets.add(t);
+        this.tickets.put(t.hashCode(), t);
     }
-    public void getTickets() {
-        System.out.println(this.fullName + "'s Tickets");
-        for (int i = 0; i < tickets.size(); i++) {
-            System.out.println(tickets.get(i) + " ");
-        }
+
+    public List getTickets() {
+        return this.tickets.values().stream().collect((Collectors.toList()));
+
     }
     @Override
     String getFullName() {
@@ -29,10 +37,14 @@ public class Customer extends User {
     }
 
     @Override
-    public void greeting() {
+    void greeting() {
         System.out.println("Hello my name is " + this.fullName);
         System.out.println("DOB: " + this.birthDate);
         System.out.println("I'm a customer");
     }
 
+    @Override
+    public String toString() {
+        return String.format("Name: %s \t DOB: %s", this.fullName, this.getDOB());
+    }
 }

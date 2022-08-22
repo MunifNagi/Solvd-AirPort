@@ -1,5 +1,5 @@
 package com.solvd.airport.classes.entity;
-
+import com.solvd.airport.interfaces.*;
 
 public final class Seat {
     private char letter;
@@ -7,7 +7,7 @@ public final class Seat {
     private Flight flight;
     private AirPlane airPlane;
 
-    public Seat(char letter, char num, Flight f) {
+    public Seat(char num, char letter, Flight f) {
         this.letter = letter;
         this.num = num;
         this.flight = f;
@@ -16,16 +16,16 @@ public final class Seat {
 
     @Override
     public String toString() {
-        return this.letter + "" + this.num + "\n" + this.flight;
+        return String.format("%c%c %s", this.num, this.letter, this.flight);
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null) {
+        if(obj == null) {
             return false;
         }
 
-        if (!(obj instanceof Flight)) {
+        if(!(obj instanceof Flight)) {
             return false;
         }
         Seat s  = (Seat) obj;
@@ -55,6 +55,7 @@ public final class Seat {
     public void setLetter(char letter) {
         this.letter = letter;
     }
+
     public char getNum() {
         return num;
     }
