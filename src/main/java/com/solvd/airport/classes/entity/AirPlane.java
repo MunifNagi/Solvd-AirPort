@@ -1,9 +1,10 @@
 package com.solvd.airport.classes.entity;
 
-import com.solvd.airport.Exceptions.*;
+import com.solvd.airport.classes.service.Seating;
+import com.solvd.airport.exceptions.*;
 import com.solvd.airport.interfaces.*;
 
-public class AirPlane implements BookSeat {
+public class AirPlane implements BookSeat, ISeats {
     private String name;
     private String modelNumber;
     private int capacity;
@@ -21,17 +22,12 @@ public class AirPlane implements BookSeat {
         this.rows = rows;
         this.cols = cols;
         this.capacity = cols * rows;
+        this.seats = new char[rows][cols];
         setSeats();
     }
 
     public void setSeats() {
-        this.seats = new char[this.rows][this.cols];
-        int firstCol = (int) 'A';
-        for (int r = 0; r < this.rows; r++) {
-            for (int c = 0; c < this.cols; c++ ) {
-                seats[r][c] = (char) (firstCol + c);
-            }
-        }
+        Seating.setSeats(this.seats);
     }
 
     public char[][] getSeats() {
@@ -39,14 +35,7 @@ public class AirPlane implements BookSeat {
     }
 
     public void printSeats() {
-        System.out.println("Row");
-        for (int i = 0; i < this.seats.length; i++) {
-            System.out.print((i + 1) + "  ");
-            for (int c = 0; c < this.cols; c++){
-                System.out.print(seats[i][c]+ " ");
-            }
-            System.out.println("");
-        }
+        Seating.printSeats(this.seats);
         int numberOfSeatsIFlights = (this.getCapacity() - this.bookedSeats);
         System.out.println("There are " + numberOfSeatsIFlights + " seats available.");
     }

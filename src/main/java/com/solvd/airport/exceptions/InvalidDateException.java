@@ -1,4 +1,4 @@
-package com.solvd.airport.Exceptions;
+package com.solvd.airport.exceptions;
 
 public class InvalidDateException extends Exception {
     public InvalidDateException() {
