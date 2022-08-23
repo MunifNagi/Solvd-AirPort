@@ -1,6 +1,6 @@
 package com.solvd.airport.classes.entity;
 
-import com.solvd.airport.Exceptions.*;
+import com.solvd.airport.exceptions.*;
 
 import java.text.DateFormat;
 import java.text.ParseException;

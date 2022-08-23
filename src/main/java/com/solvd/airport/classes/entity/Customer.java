@@ -1,6 +1,6 @@
 package com.solvd.airport.classes.entity;
 
-import com.solvd.airport.Exceptions.*;
+import com.solvd.airport.exceptions.*;
 import com.solvd.airport.classes.service.Booking;
 
 import java.util.ArrayList;
