@@ -5,6 +5,7 @@ import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
 
 public abstract class Seating {
 
@@ -28,13 +29,13 @@ public abstract class Seating {
     }
 
     public static void writeSeats(char[][] seats, File file) throws IOException {
-        FileUtils.writeStringToFile(file, "Row\n", true);
+        FileUtils.writeStringToFile(file, "Row\n", Charset.defaultCharset(), true);
         for (int r = 0; r < seats.length; r++) {
-            FileUtils.writeStringToFile(file, (r + 1) + "  ", true);
+            FileUtils.writeStringToFile(file, (r + 1) + "  ", Charset.defaultCharset(), true);
             for (int c = 0; c < seats[r].length; c++) {
-                FileUtils.writeStringToFile(file, seats[r][c] + " ", true);
+                FileUtils.writeStringToFile(file, seats[r][c] + " ", Charset.defaultCharset(), true);
             }
-            FileUtils.writeStringToFile(file, "\n", true);
+            FileUtils.writeStringToFile(file, "\n", Charset.defaultCharset(), true);
         }
     }
 
