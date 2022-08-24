@@ -22,6 +22,10 @@ public class Cancellation implements IConfirmation {
         AirPlane plane = flight.getAirPlane();
         plane.emptySeat(seat);
         String seatNumber = seat.getSeatNumber();
-        IConfirmation.confirm(plane, seatNumber, false);
+        try {
+            IConfirmation.confirm(customer, plane, seatNumber, false);
+        } catch(IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

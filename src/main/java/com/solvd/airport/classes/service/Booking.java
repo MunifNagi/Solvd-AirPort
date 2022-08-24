@@ -71,7 +71,11 @@ public class Booking implements BookSeat, IConfirmation {
             ticketsBooked.get(customer).add(t);
             plane.bookSeat(null, null);
             System.out.println(" ");
-            IConfirmation.confirm(plane, seatNumber, true);
+            try {
+                IConfirmation.confirm(customer, plane, seatNumber, true);
+            } catch(IOException e) {
+                throw new RuntimeException(e);
+            }
         } else {
             System.out.println("This seat is taken. Try Again");
             bookSeat(flight, customer);

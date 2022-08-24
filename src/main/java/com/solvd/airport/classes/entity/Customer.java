@@ -27,7 +27,7 @@ public class Customer extends User {
 
     }
     @Override
-    String getFullName() {
+    public String getFullName() {
         return this.fullName;
     }
 
@@ -45,6 +45,6 @@ public class Customer extends User {
 
     @Override
     public String toString() {
-        return String.format("Name: %s \t DOB: %s", this.fullName, this.getDOB());
+        return String.format("Name: %s \t DOB: %s \n", this.fullName, this.getDOB());
     }
 }

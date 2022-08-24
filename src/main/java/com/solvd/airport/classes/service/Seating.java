@@ -1,6 +1,10 @@
 package com.solvd.airport.classes.service;
 
 import com.solvd.airport.classes.entity.AirPlane;
+import org.apache.commons.io.FileUtils;
+
+import java.io.File;
+import java.io.IOException;
 
 public abstract class Seating {
 
@@ -20,6 +24,17 @@ public abstract class Seating {
                 System.out.print(seats[r][c] + " ");
             }
             System.out.println("");
+        }
+    }
+
+    public static void writeSeats(char[][] seats, File file) throws IOException {
+        FileUtils.writeStringToFile(file, "Row\n", true);
+        for (int r = 0; r < seats.length; r++) {
+            FileUtils.writeStringToFile(file, (r + 1) + "  ", true);
+            for (int c = 0; c < seats[r].length; c++) {
+                FileUtils.writeStringToFile(file, seats[r][c] + " ", true);
+            }
+            FileUtils.writeStringToFile(file, "\n", true);
         }
     }
 
