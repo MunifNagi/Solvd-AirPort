@@ -6,6 +6,7 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.util.stream.IntStream;
 
 public abstract class Seating {
 
@@ -19,32 +20,40 @@ public abstract class Seating {
 
     public static void printSeats(char[][] seats) {
         System.out.println("Row");
-        for (int r = 0; r < seats.length; r++) {
-            System.out.print((r + 1) + "  ");
-            for (int c = 0; c < seats[r].length; c++) {
-                System.out.print(seats[r][c] + " ");
-            }
-            System.out.println("");
-        }
+        IntStream.range(0, seats.length)
+                .forEach(
+                        r -> {
+                            System.out.print((r + 1) + "  ");
+                            IntStream.range(0, seats[r].length).forEach(c -> System.out.print(seats[r][c] + " "));
+                            System.out.println("");
+                        }
+                );
     }
 
     public static void writeSeats(char[][] seats, File file) throws IOException {
-        FileUtils.writeStringToFile(file, "Row\n", Charset.defaultCharset(), true);
-        for (int r = 0; r < seats.length; r++) {
-            FileUtils.writeStringToFile(file, (r + 1) + "  ", Charset.defaultCharset(), true);
-            for (int c = 0; c < seats[r].length; c++) {
-                FileUtils.writeStringToFile(file, seats[r][c] + " ", Charset.defaultCharset(), true);
-            }
-            FileUtils.writeStringToFile(file, "\n", Charset.defaultCharset(), true);
-        }
+        appendStringToFile(file, "Row\n");
+        IntStream.range(0, seats.length)
+                .forEach(
+                        r -> {
+                            appendStringToFile(file, (r + 1) + "  ");
+                            IntStream.range(0, seats[r].length).forEach(c -> appendStringToFile(file, seats[r][c] + " "));
+                            appendStringToFile(file, "\n");
+                        }
+                );
     }
 
     public static void setSeats(char[][] seats) {
-        int firstCol = (int) 'A';
-        for (int r = 0; r < seats.length; r++) {
-            for (int c = 0; c < seats[r].length; c++) {
-                seats[r][c] = (char) (firstCol + c);
-            }
+        char firstCol = 'A';
+        IntStream.range(0, seats.length)
+                .forEach(r -> IntStream.range(0, seats[r].length).
+                        forEach(c -> seats[r][c] = (char) (firstCol + c)));
+    }
+
+    public static void appendStringToFile(File file, String string) {
+        try {
+            FileUtils.writeStringToFile(file, string, Charset.defaultCharset(), true);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
