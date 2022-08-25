@@ -1,7 +1,6 @@
 package com.solvd.airport.classes.entity;
 
-import com.solvd.airport.Exceptions.*;
-import com.solvd.airport.interfaces.*;
+import com.solvd.airport.exceptions.*;
 import com.solvd.airport.classes.service.Display;
 import com.solvd.airport.classes.service.Booking;
 import com.solvd.airport.classes.service.Cancellation;
@@ -58,9 +57,9 @@ public class Employee extends User {
         return null;
     }
 
-    public void bookTicket(Flight f, Customer c) {
+    public void bookTicket(Flight flight, Customer customer) {
         Booking b = new Booking();
-        b.bookSeat(f, c);
+        b.bookSeat(flight, customer);
     }
 
     public Ticket chooseTicket(Customer customer) {

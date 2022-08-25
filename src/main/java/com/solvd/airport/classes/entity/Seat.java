@@ -64,4 +64,9 @@ public final class Seat {
         this.num = num;
     }
 
+    public String getSeatNumber() {
+        String s = new StringBuilder("").append(this.num).append(this.letter).toString();
+        return s;
+    }
+
 }

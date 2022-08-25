@@ -1,7 +1,6 @@
 package com.solvd.airport.classes.entity;
 
-import com.solvd.airport.Exceptions.*;
-import com.solvd.airport.interfaces.*;
+import com.solvd.airport.exceptions.*;
 
 public class Flight {
     private AirPlane airPlane;

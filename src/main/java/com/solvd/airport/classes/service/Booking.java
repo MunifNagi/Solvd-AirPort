@@ -1,9 +1,10 @@
 package com.solvd.airport.classes.service;
 
-import com.solvd.airport.Exceptions.*;
+import com.solvd.airport.exceptions.*;
 import com.solvd.airport.classes.entity.*;
 import com.solvd.airport.interfaces.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +14,7 @@ import java.util.Scanner;
  * Booking Tickets for user's chosen flights
  * and printing them.
  */
-public class Booking implements BookSeat {
+public class Booking implements BookSeat, IConfirmation {
 
     static HashMap<User, ArrayList<Ticket>> ticketsBooked = new HashMap<>();
 
@@ -53,28 +54,31 @@ public class Booking implements BookSeat {
         return seatNumber;
     }
 
-    public void bookSeat(Flight f, Customer customer) {
-        if(f == null) {
+    public void bookSeat(Flight flight, Customer customer) {
+        if(flight == null) {
             throw new NoFlightChosenException("Flight is null, so there will be no AirPlane associated with it to book", new NullPointerException());
         }
-        AirPlane p = f.getAirPlane();;
-        checkAvailability(p);
-        String seatNumber = chooseSeat(p);
-        char[][] seats = p.getSeats();
+        AirPlane plane = flight.getAirPlane();;
+        checkAvailability(plane);
+        String seatNumber = chooseSeat(plane);
+        char[][] seats = plane.getSeats();
         int row = seatNumber.charAt(0) - '1';
         int col = seatNumber.charAt(1) - 'A';
         if(seats[row][col] != 'X') {
             seats[row][col] = 'X';
-            Ticket t = new Ticket(customer, f, seatNumber);
+            Ticket t = new Ticket(customer, flight, seatNumber);
             customer.addTicket(t);
             ticketsBooked.get(customer).add(t);
-            p.bookSeat(null, null);
+            plane.bookSeat(null, null);
             System.out.println(" ");
-            p.printSeats();
-            System.out.println("you are booked, your seat is " + seatNumber);
+            try {
+                IConfirmation.confirm(customer, plane, seatNumber, true);
+            } catch(IOException e) {
+                throw new RuntimeException(e);
+            }
         } else {
             System.out.println("This seat is taken. Try Again");
-            bookSeat(f, customer);
+            bookSeat(flight, customer);
         }
     }
 

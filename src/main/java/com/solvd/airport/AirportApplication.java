@@ -1,6 +1,6 @@
 package com.solvd.airport;
 
-import com.solvd.airport.Exceptions.InvalidDateException;
+import com.solvd.airport.exceptions.InvalidDateException;
 import com.solvd.airport.classes.entity.*;
 import com.solvd.airport.classes.service.Booking;
 import org.apache.logging.log4j.LogManager;

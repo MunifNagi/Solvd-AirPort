@@ -1,4 +1,4 @@
-package com.solvd.airport.Exceptions;
+package com.solvd.airport.exceptions;
 
 public class NegativeArgumentValueException extends  IllegalArgumentException {
     public NegativeArgumentValueException() {

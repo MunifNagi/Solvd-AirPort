@@ -1,6 +1,6 @@
 package com.solvd.airport.classes.entity;
 
-import com.solvd.airport.Exceptions.*;
+import com.solvd.airport.exceptions.*;
 import com.solvd.airport.classes.service.Booking;
 
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ public class Customer extends User {
 
     }
     @Override
-    String getFullName() {
+    public String getFullName() {
         return this.fullName;
     }
 
@@ -45,6 +45,6 @@ public class Customer extends User {
 
     @Override
     public String toString() {
-        return String.format("Name: %s \t DOB: %s", this.fullName, this.getDOB());
+        return String.format("Name: %s \t DOB: %s \n", this.fullName, this.getDOB());
     }
 }
