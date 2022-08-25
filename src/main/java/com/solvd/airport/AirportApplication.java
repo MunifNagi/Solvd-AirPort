@@ -28,23 +28,16 @@ public class AirportApplication {
 
 		Employee employee = createEmployee("John", "10/22/1980", JFK);
 		Customer customer1 = createCustomer("Alex", "06/18/1997");
-		Customer customer2 = createCustomer("John", "07/29/1995");
+		Customer customer2 = createCustomer("James", "07/29/1995");
 
-		Flight chosen = employee.chooseFlight();
-		employee.bookTicket(chosen, customer1);
-
-		Flight chosen2 = employee.chooseFlight();
-		employee.bookTicket(chosen2, customer2);
-
-		Flight chosen3 = employee.chooseFlight();
-		employee.bookTicket(chosen3, customer1);
+		runBooking(employee,customer1);
+		runBooking(employee,customer2);
+		runBooking(employee,customer1);
 
 		Booking.printAllTickets();
 		employee.cancelTicket(customer1);
 
-		Flight chosen4 = employee.chooseFlight();
-		employee.bookTicket(chosen4, customer2);
-
+		runBooking(employee,customer2);
 		Booking.printAllTickets();
 	}
 
@@ -67,4 +60,10 @@ public class AirportApplication {
 		}
 		return employee;
 	}
+
+	static void runBooking(Employee employee, Customer customer) {
+		Flight chosen = employee.chooseFlight();
+		employee.bookTicket(chosen, customer);
+	}
+
 }
