@@ -40,7 +40,6 @@ public class Booking implements BookSeat, IConfirmation {
             }
             seatNumber = keyboard.nextLine();
             if(seatNumber.equals("-1")) {
-                System.out.println("Thank you!\n");
                 return "-1";
             }
             if(!(seatNumber.length() == 2)) {
@@ -61,6 +60,10 @@ public class Booking implements BookSeat, IConfirmation {
         AirPlane plane = flight.getAirPlane();;
         checkAvailability(plane);
         String seatNumber = chooseSeat(plane);
+        if(seatNumber == "-1") {
+            System.out.println("Thank you!\n");
+            return;
+        }
         char[][] seats = plane.getSeats();
         int row = seatNumber.charAt(0) - '1';
         int col = seatNumber.charAt(1) - 'A';
