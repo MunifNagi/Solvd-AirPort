@@ -92,11 +92,12 @@ public class Booking implements BookSeat, IConfirmation {
     }
 
     public static void printAllTickets() {
-        for(Map.Entry<User, ArrayList<Ticket>> m : ticketsBooked.entrySet()){
-            System.out.println(m.getKey());
-            Display.print(m.getValue());
+        System.out.println("Customer's Booked Tickets:");
+        ticketsBooked.entrySet().stream().forEach(u -> {
+            System.out.println(u.getKey().getFullName());
+            u.getValue().forEach(ticket -> System.out.println(ticket));
             System.out.println("_________");
-        }
+        });
     }
 
     public static HashMap<User, ArrayList<Ticket>> getBookedTickets() {
