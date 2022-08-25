@@ -1,8 +1,11 @@
 package com.solvd.airport.classes.service;
 
+import com.solvd.airport.AirportApplication;
 import com.solvd.airport.exceptions.*;
 import com.solvd.airport.classes.entity.*;
 import com.solvd.airport.interfaces.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,6 +19,7 @@ import java.util.Scanner;
  */
 public class Booking implements BookSeat, IConfirmation {
 
+    private static final Logger logger = LogManager.getLogger(Booking.class);
     static HashMap<User, ArrayList<Ticket>> ticketsBooked = new HashMap<>();
 
     public static void checkAvailability(AirPlane p){
@@ -76,7 +80,9 @@ public class Booking implements BookSeat, IConfirmation {
             System.out.println(" ");
             try {
                 IConfirmation.confirm(customer, plane, seatNumber, true);
+                logger.info("Booking is confirmed and has been written to file.");
             } catch(IOException e) {
+                logger.error("Confirmation of booking was not successful");
                 throw new RuntimeException(e);
             }
         } else {
