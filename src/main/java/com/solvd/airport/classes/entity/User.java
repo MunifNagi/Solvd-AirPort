@@ -22,11 +22,9 @@ public abstract class User {
         }
     }
 
-    abstract String getFullName();
+    public abstract String getFullName();
 
-    abstract String getDOB();
-
-    abstract void greeting();
+    public abstract String getDOB();
 
     private static boolean dateValidation (String date) throws InvalidDateException {
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");

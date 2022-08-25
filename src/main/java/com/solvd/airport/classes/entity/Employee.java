@@ -13,7 +13,7 @@ public class Employee extends User {
     public Employee(String fullName, String DOB, AirPort ap) throws InvalidDateException {
         super(fullName, DOB);
         this.employer = ap;
-        greeting();
+        Display.greeting(this);
     }
 
     @Override
@@ -22,14 +22,8 @@ public class Employee extends User {
     }
 
     @Override
-    String getDOB() {
+    public String getDOB() {
         return this.birthDate;
-    }
-    @Override
-    void greeting() {
-        System.out.println("Hello my name is " + this.fullName);
-        System.out.println("DOB: " + this.birthDate);
-        System.out.println("I'm an employee in this Airport");
     }
 
     public Flight chooseFlight() {

@@ -1,5 +1,6 @@
 package com.solvd.airport.classes.entity;
 
+import com.solvd.airport.classes.service.Display;
 import com.solvd.airport.exceptions.*;
 import com.solvd.airport.classes.service.Booking;
 
@@ -15,7 +16,7 @@ public class Customer extends User {
         this.tickets = new HashMap<>();
         HashMap<User, ArrayList<Ticket>> ticketsBooked = Booking.getBookedTickets();
         ticketsBooked.put(this, new ArrayList<Ticket>());
-        greeting();
+        Display.greeting(this);
     }
 
     public void addTicket(Ticket t) {
@@ -32,15 +33,8 @@ public class Customer extends User {
     }
 
     @Override
-    String getDOB() {
+    public String getDOB() {
         return this.birthDate;
-    }
-
-    @Override
-    void greeting() {
-        System.out.println("Hello my name is " + this.fullName);
-        System.out.println("DOB: " + this.birthDate);
-        System.out.println("I'm a customer");
     }
 
     @Override
