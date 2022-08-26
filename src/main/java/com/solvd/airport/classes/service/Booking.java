@@ -1,8 +1,11 @@
 package com.solvd.airport.classes.service;
 
+import com.solvd.airport.AirportApplication;
 import com.solvd.airport.exceptions.*;
 import com.solvd.airport.classes.entity.*;
 import com.solvd.airport.interfaces.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,6 +19,7 @@ import java.util.Scanner;
  */
 public class Booking implements BookSeat, IConfirmation {
 
+    private static final Logger logger = LogManager.getLogger(Booking.class);
     static HashMap<User, ArrayList<Ticket>> ticketsBooked = new HashMap<>();
 
     public static void checkAvailability(AirPlane p){
@@ -40,7 +44,6 @@ public class Booking implements BookSeat, IConfirmation {
             }
             seatNumber = keyboard.nextLine();
             if(seatNumber.equals("-1")) {
-                System.out.println("Thank you!\n");
                 return "-1";
             }
             if(!(seatNumber.length() == 2)) {
@@ -61,6 +64,10 @@ public class Booking implements BookSeat, IConfirmation {
         AirPlane plane = flight.getAirPlane();;
         checkAvailability(plane);
         String seatNumber = chooseSeat(plane);
+        if(seatNumber == "-1") {
+            System.out.println("Thank you!\n");
+            return;
+        }
         char[][] seats = plane.getSeats();
         int row = seatNumber.charAt(0) - '1';
         int col = seatNumber.charAt(1) - 'A';
@@ -73,7 +80,9 @@ public class Booking implements BookSeat, IConfirmation {
             System.out.println(" ");
             try {
                 IConfirmation.confirm(customer, plane, seatNumber, true);
+                logger.info("Booking is confirmed and has been written to file.");
             } catch(IOException e) {
+                logger.error("Confirmation of booking was not successful");
                 throw new RuntimeException(e);
             }
         } else {
@@ -83,11 +92,12 @@ public class Booking implements BookSeat, IConfirmation {
     }
 
     public static void printAllTickets() {
-        for(Map.Entry<User, ArrayList<Ticket>> m : ticketsBooked.entrySet()){
-            System.out.println(m.getKey());
-            Display.print(m.getValue());
+        System.out.println("Customer's Booked Tickets:");
+        ticketsBooked.entrySet().stream().forEach(u -> {
+            System.out.println(u.getKey().getFullName());
+            u.getValue().forEach(ticket -> System.out.println(ticket));
             System.out.println("_________");
-        }
+        });
     }
 
     public static HashMap<User, ArrayList<Ticket>> getBookedTickets() {
