@@ -15,14 +15,24 @@ public class AirportApplication {
 		AirPort JFK = new AirPort("JFK", "New York");
 		AirPort LHR = new AirPort("LHR", "London");
 
-		AirPlane Boeing = new AirPlane("Boeing", "1234", 7, 4);
-		AirPlane Boeing2 = new AirPlane("Boeing", "1235", 4, 3);
-		AirPlane Boeing3 = new AirPlane("Boeing", "1236", 9, 10);
+		AirPlane Boeing = new AirPlane("Boeing1234", "1234", 7, 4);
+		AirPlane Boeing2 = new AirPlane("Boeing1235", "1235", 4, 3);
+		AirPlane Boeing3 = new AirPlane("Boeing1236", "1236", 9, 10);
+
+		Airlines united = new Airlines("United Airlines");
 
 		Flight f1 = new Flight(JFK, Ezeiza, 7, Boeing);
 		Flight f2 = new Flight(JFK, LHR, 9, Boeing2);
 		Flight f3 = new Flight(JFK, LHR, 9, Boeing3);
-		
+
+		united.addFlight(f1, null);
+		united.addFlight(f2, null);
+		united.addFlight(f3, null);
+
+		united.addAirPlane(Boeing);
+		united.addAirPlane(Boeing2);
+		united.addAirPlane(Boeing3);
+
 		JFK.getAllFlights();
 		JFK.getAllAirPlanes();
 
@@ -31,6 +41,11 @@ public class AirportApplication {
 		Customer customer2 = createCustomer("James", "07/29/1995");
 
 		runBooking(employee,customer1);
+
+		System.out.println(f3.getAirPlane());
+		united.overrideFlightPlane(f3, Boeing);
+		System.out.println(f3.getAirPlane());
+
 		runBooking(employee,customer2);
 		runBooking(employee,customer1);
 
